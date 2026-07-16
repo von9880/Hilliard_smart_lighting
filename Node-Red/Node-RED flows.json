@@ -132,7 +132,7 @@
         "id": "25629b3ce26ccf6a",
         "type": "mqtt-broker",
         "name": "Broker",
-        "broker": "10.63.200.160",
+        "broker": "192.168.60.6",
         "port": 1883,
         "clientid": "",
         "autoConnect": true,
@@ -445,8 +445,8 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 810,
-        "y": 400,
+        "x": 890,
+        "y": 180,
         "wires": []
     },
     {
@@ -506,7 +506,7 @@
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
         "x": 540,
-        "y": 680,
+        "y": 420,
         "wires": []
     },
     {
@@ -523,7 +523,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 680,
+        "y": 420,
         "wires": [
             [
                 "3019aaf2f7316a59"
@@ -549,7 +549,7 @@
         "className": "",
         "topicType": "msg",
         "x": 150,
-        "y": 640,
+        "y": 360,
         "wires": [
             [
                 "ab76958fed7ff1bf"
@@ -569,7 +569,7 @@
         "finalize": "",
         "libs": [],
         "x": 330,
-        "y": 640,
+        "y": 360,
         "wires": [
             []
         ]
@@ -587,7 +587,7 @@
         "finalize": "",
         "libs": [],
         "x": 340,
-        "y": 680,
+        "y": 420,
         "wires": [
             [
                 "4b13f5f5040af325"
@@ -614,8 +614,8 @@
         "payloadType": "str",
         "topic": "topic",
         "topicType": "msg",
-        "x": 140,
-        "y": 760,
+        "x": 120,
+        "y": 500,
         "wires": [
             [
                 "b54ac5e9d08af925"
@@ -636,8 +636,28 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 330,
-        "y": 760,
+        "x": 310,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "e808d96e0ab94ebe",
+        "type": "comment",
+        "z": "99166529b4135d9a",
+        "name": "Testing",
+        "info": "",
+        "x": 110,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "8bc45f0afa48af52",
+        "type": "comment",
+        "z": "99166529b4135d9a",
+        "name": "May or may not use:",
+        "info": "",
+        "x": 870,
+        "y": 120,
         "wires": []
     },
     {
@@ -645,7 +665,7 @@
         "type": "mqtt in",
         "z": "86455c015ae650a0",
         "name": "",
-        "topic": "lights/RGB/box0/connection",
+        "topic": "lights/RGB/box1/connection",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "25629b3ce26ccf6a",
@@ -654,7 +674,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 40,
+        "y": 100,
         "wires": [
             [
                 "4e667f3fdb0353d8"
@@ -678,8 +698,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 420,
-        "y": 40,
+        "x": 400,
+        "y": 100,
         "wires": []
     },
     {
@@ -687,7 +707,7 @@
         "type": "mqtt in",
         "z": "86455c015ae650a0",
         "name": "",
-        "topic": "lights/RGB/box1/connection",
+        "topic": "lights/RGB/box2/connection",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "25629b3ce26ccf6a",
@@ -720,7 +740,7 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 420,
+        "x": 400,
         "y": 160,
         "wires": []
     },
@@ -729,7 +749,7 @@
         "type": "mqtt in",
         "z": "86455c015ae650a0",
         "name": "",
-        "topic": "lights/RGB/box2/connection",
+        "topic": "lights/RGB/box3/connection",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "25629b3ce26ccf6a",
@@ -738,7 +758,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 260,
+        "y": 220,
         "wires": [
             [
                 "0dfc50cb7b79a0c5"
@@ -762,8 +782,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 420,
-        "y": 260,
+        "x": 400,
+        "y": 220,
         "wires": []
     },
     {
@@ -771,7 +791,7 @@
         "type": "mqtt in",
         "z": "86455c015ae650a0",
         "name": "",
-        "topic": "lights/RGB/box3/connection",
+        "topic": "lights/RGB/box4/connection",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "25629b3ce26ccf6a",
@@ -780,7 +800,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 360,
+        "y": 280,
         "wires": [
             [
                 "f85d08151a7cb68d"
@@ -804,8 +824,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 420,
-        "y": 360,
+        "x": 400,
+        "y": 280,
         "wires": []
     },
     {
@@ -835,7 +855,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 420,
+        "y": 660,
         "wires": [
             [
                 "66249743e24ee0e5"
@@ -869,7 +889,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 480,
+        "y": 720,
         "wires": [
             [
                 "ead33867e74a05be"
@@ -903,7 +923,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 540,
+        "y": 780,
         "wires": [
             [
                 "95041610cd605387"
@@ -937,7 +957,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 600,
+        "y": 840,
         "wires": [
             [
                 "634245f5c280755e"
@@ -953,7 +973,7 @@
         "tooltip": "",
         "place": "Select option",
         "group": "7408b37a11aa706c",
-        "order": 5,
+        "order": 9,
         "width": 0,
         "height": 0,
         "passthru": true,
@@ -989,8 +1009,8 @@
         "topic": "topic",
         "topicType": "msg",
         "className": "",
-        "x": 110,
-        "y": 680,
+        "x": 630,
+        "y": 40,
         "wires": [
             [
                 "a88d350b4b3217be"
@@ -1002,7 +1022,7 @@
         "type": "mqtt out",
         "z": "86455c015ae650a0",
         "name": "",
-        "topic": "lights/RGB/box0",
+        "topic": "lights/RGB/box1",
         "qos": "0",
         "retain": "",
         "respTopic": "",
@@ -1011,8 +1031,8 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 960,
-        "y": 580,
+        "x": 1280,
+        "y": 100,
         "wires": []
     },
     {
@@ -1028,8 +1048,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 350,
-        "y": 720,
+        "x": 610,
+        "y": 100,
         "wires": [
             [
                 "3fd3ddb70389507d"
@@ -1055,12 +1075,18 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 540,
-        "y": 680,
+        "x": 860,
+        "y": 100,
         "wires": [
             [
                 "f87763185f0e3439",
-                "56b08d5df3b8956f"
+                "56b08d5df3b8956f",
+                "62f367ae5e0b1e12",
+                "79b3cfb3cbd111b9",
+                "7b94c2bb157743ec",
+                "dd1cf321bc26f8cc",
+                "35ee1542141f2a47",
+                "6fd31a61de411f89"
             ]
         ]
     },
@@ -1083,62 +1109,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 300,
-        "y": 680,
+        "x": 840,
+        "y": 40,
         "wires": [
             []
         ]
     },
     {
         "id": "66249743e24ee0e5",
-        "type": "change",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "RGBbox0Toggle",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 420,
-        "y": 420,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "f87763185f0e3439",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox0Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 770,
-        "y": 580,
-        "wires": [
-            [
-                "e623b77542ebb1dd"
-            ]
-        ]
-    },
-    {
-        "id": "ead33867e74a05be",
         "type": "change",
         "z": "86455c015ae650a0",
         "name": "",
@@ -1156,14 +1134,37 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 480,
+        "x": 380,
+        "y": 660,
         "wires": [
             []
         ]
     },
     {
-        "id": "95041610cd605387",
+        "id": "f87763185f0e3439",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "RGBbox1Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 100,
+        "wires": [
+            [
+                "e623b77542ebb1dd"
+            ]
+        ]
+    },
+    {
+        "id": "ead33867e74a05be",
         "type": "change",
         "z": "86455c015ae650a0",
         "name": "",
@@ -1181,14 +1182,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 540,
+        "x": 380,
+        "y": 720,
         "wires": [
             []
         ]
     },
     {
-        "id": "634245f5c280755e",
+        "id": "95041610cd605387",
         "type": "change",
         "z": "86455c015ae650a0",
         "name": "",
@@ -1206,8 +1207,33 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 420,
-        "y": 600,
+        "x": 380,
+        "y": 780,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "634245f5c280755e",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGBbox4Toggle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 840,
         "wires": [
             []
         ]
@@ -1217,7 +1243,7 @@
         "type": "switch",
         "z": "86455c015ae650a0",
         "name": "",
-        "property": "RGBbox1Toggle",
+        "property": "RGBbox2Toggle",
         "propertyType": "global",
         "rules": [
             {
@@ -1227,8 +1253,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 770,
-        "y": 640,
+        "x": 1090,
+        "y": 160,
         "wires": [
             [
                 "ee2215d569593d9e"
@@ -1240,7 +1266,7 @@
         "type": "mqtt out",
         "z": "86455c015ae650a0",
         "name": "",
-        "topic": "lights/RGB/box1",
+        "topic": "lights/RGB/box2",
         "qos": "",
         "retain": "",
         "respTopic": "",
@@ -1249,8 +1275,688 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 960,
-        "y": 640,
+        "x": 1280,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "ff09abaf96023590",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "Box 5 on/off",
+        "tooltip": "",
+        "group": "7408b37a11aa706c",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 900,
+        "wires": [
+            [
+                "d285c09344c1502c"
+            ]
+        ]
+    },
+    {
+        "id": "fbd31463838d5b25",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "Box 6 on/off",
+        "tooltip": "",
+        "group": "7408b37a11aa706c",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 960,
+        "wires": [
+            [
+                "46b9dadd790843a8"
+            ]
+        ]
+    },
+    {
+        "id": "c58b9f1f71147151",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "Box 7 on/off",
+        "tooltip": "",
+        "group": "7408b37a11aa706c",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 1020,
+        "wires": [
+            [
+                "11091f14fde8c476"
+            ]
+        ]
+    },
+    {
+        "id": "771f2d04ab15dd24",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "Box 8 on/off",
+        "tooltip": "",
+        "group": "7408b37a11aa706c",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 1080,
+        "wires": [
+            [
+                "70bd679a4096b964"
+            ]
+        ]
+    },
+    {
+        "id": "d285c09344c1502c",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGBbox5Toggle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "46b9dadd790843a8",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGBbox6Toggle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "11091f14fde8c476",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGBbox7Toggle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "70bd679a4096b964",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGBbox8Toggle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 380,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2e8d265fea7effde",
+        "type": "mqtt in",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box5/connection",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "25629b3ce26ccf6a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 340,
+        "wires": [
+            [
+                "ca64ced70e587118"
+            ]
+        ]
+    },
+    {
+        "id": "ca64ced70e587118",
+        "type": "ui_text",
+        "z": "86455c015ae650a0",
+        "group": "0276b1a883790586",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Box 5 (RGB) Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 400,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "b342d99bd72ea44d",
+        "type": "mqtt in",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box6/connection",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "25629b3ce26ccf6a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 400,
+        "wires": [
+            [
+                "bf01b5189c7ee6f4"
+            ]
+        ]
+    },
+    {
+        "id": "bf01b5189c7ee6f4",
+        "type": "ui_text",
+        "z": "86455c015ae650a0",
+        "group": "0276b1a883790586",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Box 6 (RGB) Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 400,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "7b752d0e90f8c0f1",
+        "type": "mqtt in",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box7/connection",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "25629b3ce26ccf6a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 460,
+        "wires": [
+            [
+                "a8f9e0a17e3ffcde"
+            ]
+        ]
+    },
+    {
+        "id": "a8f9e0a17e3ffcde",
+        "type": "ui_text",
+        "z": "86455c015ae650a0",
+        "group": "0276b1a883790586",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Box 7 (RGB) Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 400,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "875e4de1685451d8",
+        "type": "mqtt in",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box8/connection",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "25629b3ce26ccf6a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 520,
+        "wires": [
+            [
+                "4a7b117fb9e4e59e"
+            ]
+        ]
+    },
+    {
+        "id": "4a7b117fb9e4e59e",
+        "type": "ui_text",
+        "z": "86455c015ae650a0",
+        "group": "0276b1a883790586",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Box 8 (RGB) Status:",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 400,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "c9e1ceaa7522827a",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box3",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1280,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "62f367ae5e0b1e12",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "RGBbox3Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 220,
+        "wires": [
+            [
+                "c9e1ceaa7522827a"
+            ]
+        ]
+    },
+    {
+        "id": "79b3cfb3cbd111b9",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "RGBbox4Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 280,
+        "wires": [
+            [
+                "51d1c301e3362a1a"
+            ]
+        ]
+    },
+    {
+        "id": "51d1c301e3362a1a",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box4",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1280,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "8ddec161fe60a327",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box5",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1280,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7b94c2bb157743ec",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "RGBbox5Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 340,
+        "wires": [
+            [
+                "8ddec161fe60a327"
+            ]
+        ]
+    },
+    {
+        "id": "dd1cf321bc26f8cc",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "RGBbox6Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 400,
+        "wires": [
+            [
+                "90caddefadb80417"
+            ]
+        ]
+    },
+    {
+        "id": "90caddefadb80417",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box6",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1280,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "1670d1cdc384ee91",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box7",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1280,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "35ee1542141f2a47",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "RGBbox7Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 460,
+        "wires": [
+            [
+                "1670d1cdc384ee91"
+            ]
+        ]
+    },
+    {
+        "id": "6fd31a61de411f89",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "RGBbox8Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1090,
+        "y": 520,
+        "wires": [
+            [
+                "9768e7c7f197a750"
+            ]
+        ]
+    },
+    {
+        "id": "9768e7c7f197a750",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box8",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1280,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "c58540584e33d8b4",
+        "type": "comment",
+        "z": "86455c015ae650a0",
+        "name": "Sending code to boxes",
+        "info": "Switches message from music processing to a number representing color mode (using global.RGBmode)\nIf the switch is on the message will be pushed to that respective box",
+        "x": 1140,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "6c48496594b8f95f",
+        "type": "comment",
+        "z": "86455c015ae650a0",
+        "name": "Switches",
+        "info": "If the switch is on the respective variable is set to true",
+        "x": 100,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "33f9b46ac5bc1a6b",
+        "type": "comment",
+        "z": "86455c015ae650a0",
+        "name": "Connection Status",
+        "info": "pushes whatever is in each boxes connection topic onto the dashboard \n(usually \"Connected\" or \"disconnected\")",
+        "x": 130,
+        "y": 40,
         "wires": []
     },
     {
@@ -1258,7 +1964,7 @@
         "type": "mqtt in",
         "z": "3b848663afbdce68",
         "name": "",
-        "topic": "lights/AC/box0/connection",
+        "topic": "lights/AC/box1/connection",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "25629b3ce26ccf6a",
@@ -1267,7 +1973,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 60,
+        "y": 100,
         "wires": [
             [
                 "36f2364cd64c9584"
@@ -1292,7 +1998,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 410,
-        "y": 60,
+        "y": 100,
         "wires": []
     },
     {
@@ -1300,7 +2006,7 @@
         "type": "mqtt in",
         "z": "3b848663afbdce68",
         "name": "",
-        "topic": "lights/AC/box1/connection",
+        "topic": "lights/AC/box2/connection",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "25629b3ce26ccf6a",
@@ -1309,7 +2015,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 120,
+        "y": 160,
         "wires": [
             [
                 "9b7691d6d048ef78"
@@ -1334,7 +2040,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 410,
-        "y": 120,
+        "y": 160,
         "wires": []
     },
     {
@@ -1342,7 +2048,7 @@
         "type": "mqtt in",
         "z": "3b848663afbdce68",
         "name": "",
-        "topic": "lights/AC/box2/connection",
+        "topic": "lights/AC/box3/connection",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "25629b3ce26ccf6a",
@@ -1351,7 +2057,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 180,
+        "y": 220,
         "wires": [
             [
                 "5575d0a5fc9f56e2"
@@ -1376,7 +2082,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 410,
-        "y": 180,
+        "y": 220,
         "wires": []
     },
     {
@@ -1384,7 +2090,7 @@
         "type": "mqtt in",
         "z": "3b848663afbdce68",
         "name": "",
-        "topic": "lights/AC/box3/connection",
+        "topic": "lights/AC/box4/connection",
         "qos": "2",
         "datatype": "auto-detect",
         "broker": "25629b3ce26ccf6a",
@@ -1393,7 +2099,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 240,
+        "y": 280,
         "wires": [
             [
                 "b11135e420e9f5c9"
@@ -1418,7 +2124,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 410,
-        "y": 240,
+        "y": 280,
         "wires": []
     },
     {
@@ -1448,7 +2154,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 300,
+        "y": 400,
         "wires": [
             [
                 "41323c831b1407c6"
@@ -1482,7 +2188,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 360,
+        "y": 460,
         "wires": [
             [
                 "b63e7091887d588d"
@@ -1516,7 +2222,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 420,
+        "y": 520,
         "wires": [
             [
                 "e11d4dda5009de7f"
@@ -1550,7 +2256,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 480,
+        "y": 580,
         "wires": [
             [
                 "302761d3389ff484"
@@ -1564,7 +2270,7 @@
         "name": "",
         "label": "Color Mode",
         "tooltip": "",
-        "place": "1",
+        "place": "Mode 1",
         "group": "2f9a562f79833cd6",
         "order": 4,
         "width": 0,
@@ -1592,8 +2298,8 @@
         "topic": "ACMode",
         "topicType": "global",
         "className": "",
-        "x": 110,
-        "y": 540,
+        "x": 610,
+        "y": 40,
         "wires": [
             [
                 "275382435e3217de"
@@ -1605,7 +2311,7 @@
         "type": "mqtt out",
         "z": "3b848663afbdce68",
         "name": "",
-        "topic": "lights/AC/box0",
+        "topic": "lights/AC/box1",
         "qos": "0",
         "retain": "",
         "respTopic": "",
@@ -1614,8 +2320,8 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 900,
-        "y": 480,
+        "x": 1180,
+        "y": 100,
         "wires": []
     },
     {
@@ -1631,8 +2337,8 @@
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 310,
-        "y": 580,
+        "x": 590,
+        "y": 100,
         "wires": [
             [
                 "af2d5d71e184d838"
@@ -1658,12 +2364,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 520,
-        "y": 540,
+        "x": 800,
+        "y": 100,
         "wires": [
             [
                 "038be91bad9e8964",
-                "df04291e7467ba80"
+                "df04291e7467ba80",
+                "5d59147cbdd6e303",
+                "a709ee274dd74d72"
             ]
         ]
     },
@@ -1686,39 +2394,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 290,
-        "y": 540,
+        "x": 810,
+        "y": 40,
         "wires": [
             []
         ]
     },
     {
         "id": "41323c831b1407c6",
-        "type": "change",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "ACbox0Toggle",
-                "pt": "global",
-                "to": "payload",
-                "tot": "msg"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 430,
-        "y": 300,
-        "wires": [
-            []
-        ]
-    },
-    {
-        "id": "b63e7091887d588d",
         "type": "change",
         "z": "3b848663afbdce68",
         "name": "",
@@ -1736,14 +2419,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 360,
+        "x": 350,
+        "y": 400,
         "wires": [
             []
         ]
     },
     {
-        "id": "e11d4dda5009de7f",
+        "id": "b63e7091887d588d",
         "type": "change",
         "z": "3b848663afbdce68",
         "name": "",
@@ -1761,14 +2444,14 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 420,
+        "x": 350,
+        "y": 460,
         "wires": [
             []
         ]
     },
     {
-        "id": "302761d3389ff484",
+        "id": "e11d4dda5009de7f",
         "type": "change",
         "z": "3b848663afbdce68",
         "name": "",
@@ -1786,55 +2469,39 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 430,
-        "y": 480,
+        "x": 350,
+        "y": 520,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "302761d3389ff484",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "ACbox4Toggle",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 350,
+        "y": 580,
         "wires": [
             []
         ]
     },
     {
         "id": "038be91bad9e8964",
-        "type": "switch",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "property": "ACbox0Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 730,
-        "y": 480,
-        "wires": [
-            [
-                "2ee013f934ababc9"
-            ]
-        ]
-    },
-    {
-        "id": "70a0377f6f48ff2f",
-        "type": "mqtt out",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "topic": "lights/AC/box1",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 940,
-        "y": 540,
-        "wires": []
-    },
-    {
-        "id": "df04291e7467ba80",
         "type": "switch",
         "z": "3b848663afbdce68",
         "name": "",
@@ -1848,8 +2515,49 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 730,
-        "y": 540,
+        "x": 1010,
+        "y": 100,
+        "wires": [
+            [
+                "2ee013f934ababc9"
+            ]
+        ]
+    },
+    {
+        "id": "70a0377f6f48ff2f",
+        "type": "mqtt out",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights/AC/box2",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1180,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "df04291e7467ba80",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "property": "ACbox2Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1010,
+        "y": 160,
         "wires": [
             [
                 "70a0377f6f48ff2f"
@@ -1857,7 +2565,129 @@
         ]
     },
     {
-        "id": "3d35b35fe01b0140",
+        "id": "f32f9d75c16c7ed3",
+        "type": "mqtt out",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights/AC/box3",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1180,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "5d59147cbdd6e303",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "property": "ACbox3Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1010,
+        "y": 220,
+        "wires": [
+            [
+                "f32f9d75c16c7ed3"
+            ]
+        ]
+    },
+    {
+        "id": "f499b6b8af2aad26",
+        "type": "mqtt out",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights/AC/box4",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1180,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "a709ee274dd74d72",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "property": "ACbox4Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1010,
+        "y": 280,
+        "wires": [
+            [
+                "f499b6b8af2aad26"
+            ]
+        ]
+    },
+    {
+        "id": "8989256acb4a1e3d",
+        "type": "comment",
+        "z": "3b848663afbdce68",
+        "name": "Connection Status",
+        "info": "pushes whatever is in each boxes connection topic onto the dashboard \n(usually \"Connected\" or \"disconnected\")",
+        "x": 130,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "5ab191e5e94dc3b7",
+        "type": "comment",
+        "z": "3b848663afbdce68",
+        "name": "Switches",
+        "info": "If the switch is on the respective variable is set to true",
+        "x": 100,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "257b6a2235d02b13",
+        "type": "comment",
+        "z": "3b848663afbdce68",
+        "name": "Sending code to boxes",
+        "info": "Switches message from music processing to a number representing color mode (using global.ACmode)\nIf the switch is on the message will be pushed to that respective box",
+        "x": 1060,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a442bd394e00810e",
+        "type": "comment",
+        "z": "5ddaa6eb233e0d37",
+        "name": "May not be needed",
+        "info": "",
+        "x": 130,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "442f125b7c4a4cab",
         "type": "global-config",
         "env": [],
         "modules": {
