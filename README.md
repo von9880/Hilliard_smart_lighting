@@ -1,2 +1,3 @@
 # Hilliard_smart_lighting
-*hello*
+## Rasperry PI IP address:
+192.168.60.6
