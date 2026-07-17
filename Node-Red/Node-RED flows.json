@@ -1541,7 +1541,7 @@
         "type": "ui_text",
         "z": "86455c015ae650a0",
         "group": "0276b1a883790586",
-        "order": 1,
+        "order": 5,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1583,7 +1583,7 @@
         "type": "ui_text",
         "z": "86455c015ae650a0",
         "group": "0276b1a883790586",
-        "order": 2,
+        "order": 6,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1625,7 +1625,7 @@
         "type": "ui_text",
         "z": "86455c015ae650a0",
         "group": "0276b1a883790586",
-        "order": 3,
+        "order": 7,
         "width": 0,
         "height": 0,
         "name": "",
@@ -1667,7 +1667,7 @@
         "type": "ui_text",
         "z": "86455c015ae650a0",
         "group": "0276b1a883790586",
-        "order": 4,
+        "order": 8,
         "width": 0,
         "height": 0,
         "name": "",
@@ -2270,7 +2270,7 @@
         "name": "",
         "label": "Color Mode",
         "tooltip": "",
-        "place": "Mode 1",
+        "place": "Select option",
         "group": "2f9a562f79833cd6",
         "order": 4,
         "width": 0,
@@ -2291,6 +2291,11 @@
             {
                 "label": "Mode 3",
                 "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Amdient",
+                "value": "0",
                 "type": "str"
             }
         ],
@@ -2320,8 +2325,8 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 1180,
-        "y": 100,
+        "x": 1340,
+        "y": 160,
         "wires": []
     },
     {
@@ -2364,14 +2369,15 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 800,
+        "x": 760,
         "y": 100,
         "wires": [
             [
                 "038be91bad9e8964",
                 "df04291e7467ba80",
                 "5d59147cbdd6e303",
-                "a709ee274dd74d72"
+                "a709ee274dd74d72",
+                "6366f4f7db02c8fd"
             ]
         ]
     },
@@ -2515,8 +2521,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1010,
-        "y": 100,
+        "x": 1170,
+        "y": 160,
         "wires": [
             [
                 "2ee013f934ababc9"
@@ -2537,8 +2543,8 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 1180,
-        "y": 160,
+        "x": 1340,
+        "y": 220,
         "wires": []
     },
     {
@@ -2556,8 +2562,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1010,
-        "y": 160,
+        "x": 1170,
+        "y": 220,
         "wires": [
             [
                 "70a0377f6f48ff2f"
@@ -2578,8 +2584,8 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 1180,
-        "y": 220,
+        "x": 1340,
+        "y": 280,
         "wires": []
     },
     {
@@ -2597,8 +2603,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1010,
-        "y": 220,
+        "x": 1170,
+        "y": 280,
         "wires": [
             [
                 "f32f9d75c16c7ed3"
@@ -2619,8 +2625,8 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 1180,
-        "y": 280,
+        "x": 1340,
+        "y": 340,
         "wires": []
     },
     {
@@ -2638,8 +2644,8 @@
         "checkall": "true",
         "repair": false,
         "outputs": 1,
-        "x": 1010,
-        "y": 280,
+        "x": 1170,
+        "y": 340,
         "wires": [
             [
                 "f499b6b8af2aad26"
@@ -2677,6 +2683,44 @@
         "wires": []
     },
     {
+        "id": "99284b56a0df66cb",
+        "type": "mqtt out",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights/AC/box1",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1340,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6366f4f7db02c8fd",
+        "type": "function",
+        "z": "3b848663afbdce68",
+        "name": "function 1",
+        "func": "while (msg.payload == 0){\n    setTimeout(function() {\n        return msg;\n    }, 7000);\n    \n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 100,
+        "wires": [
+            [
+                "99284b56a0df66cb"
+            ]
+        ]
+    },
+    {
         "id": "a442bd394e00810e",
         "type": "comment",
         "z": "5ddaa6eb233e0d37",
@@ -2687,7 +2731,7 @@
         "wires": []
     },
     {
-        "id": "442f125b7c4a4cab",
+        "id": "bb9f8ec280585e76",
         "type": "global-config",
         "env": [],
         "modules": {
