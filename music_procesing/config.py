@@ -1,7 +1,8 @@
-FILE_PICKER = "LastChristmas" 
-AUDIO_FILE = f"C:/Users/Student/Downloads/music procesing/wave/{FILE_PICKER}.wav" #Needs to be changed based on file path
+FILE_PICKER = "milk" 
+AUDIO_FILE = f"music_procesing/wave/{FILE_PICKER}.wav" 
 #AUDIO_FILE = "wave/milk.wav"
 #AUDIO_FILE = "wave/LastChristmas.wav"
+
 
 
 WINDOW_SIZE = 2024
