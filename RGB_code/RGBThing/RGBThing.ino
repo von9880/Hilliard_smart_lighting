@@ -5,8 +5,8 @@
 // ==========================================
 // 1. SYSTEM CONFIGURATION & HARDWARE SETTINGS
 // ==========================================
-#define NUM_LEDS 144              // Total physical LED count
-#define LEDS_PER_SEGMENT 48       // Desired number of LEDs per segment
+#define NUM_LEDS 50              // Total physical LED count
+#define LEDS_PER_SEGMENT 10       // Desired number of LEDs per segment
 #define DATA_PIN 4                // Pin output to LED strip data line
 
 // Non-blocking Animation Limits
@@ -20,7 +20,7 @@ const char *password      = "Interns123!";
 const char *mqtt_broker   = "192.168.60.6"; 
 const int   mqtt_port     = 1883;           
 const char *mqtt_username = "RGB1";         
-const char *mqtt_password = "1"; 
+const char *mqtt_password = "HilliardRGB#1"; 
 
 // Topic Subscriptions
 const char *mqtt_topic        = "lights/RGB/box1"; 
@@ -28,7 +28,7 @@ const char *speed_topic       = "lights/RGB/speed";
 const char *brightness_topic  = "lights/RGB/brightness";
 const char *will_topic        = "lights/RGB/box1/connection"; 
 
-bool invertRedGreen = false; //switch red and green (defult false)
+bool invertRedGreen = true; //switch red and green (true for seed lights, false for strips)
 
 
 
@@ -170,7 +170,12 @@ void drawPatterns(int pulseIndex, int distance) {
 
   for (int c = 0; c < NUM_CENTERS; c++) {
     int centerPos = centers[c];
-
+    /*New Color Template (also update handleModeMessage and node-RED)
+    else if (drawColor == CRGB::[color]) {
+      CRGB [color]Color = CHSV(hue, saturation , random8(200, 255));
+      setLedSafe(centerPos + distance, [color]Color);
+      setLedSafe(centerPos - distance, [color]Color);
+    }*/ 
     if (drawColor == CRGB(0,0,0)) {
       uint8_t hue = distance * 8; 
       CRGB rainbowColor = CHSV(hue, 255, 255);
@@ -198,6 +203,16 @@ void drawPatterns(int pulseIndex, int distance) {
       CRGB grassColor = CHSV(64 + (distance % 4) * 8, 255, random8(200, 255));
       setLedSafe(centerPos + distance, grassColor);
       setLedSafe(centerPos - distance, grassColor);
+    } 
+    else if (drawColor == CRGB::HotPink) {
+      CRGB pinkColor = CHSV(230, 255 , random8(200, 255));
+      setLedSafe(centerPos + distance, pinkColor);
+      setLedSafe(centerPos - distance, pinkColor);
+    } 
+    else if (drawColor == CRGB::LightBlue) {
+      CRGB lBlueColor = CHSV(127, 255 , random8(200, 255));
+      setLedSafe(centerPos + distance, lBlueColor);
+      setLedSafe(centerPos - distance, lBlueColor);
     } 
     else {
       setLedSafe(centerPos + distance, drawColor);
@@ -258,6 +273,8 @@ void handleModeMessage(String message) {
   else if (message == "3")  spawnPulse(CRGB::BlueViolet);
   else if (message == "4")  spawnPulse(CRGB::Black); 
   else if (message == "5")  spawnPulse(CRGB::White);
+  else if (message == "6")  spawnPulse(CRGB::HotPink);
+  else if (message == "7")  spawnPulse(CRGB::LightBlue);
 }
 
 void handleSpeedMessage(String message) {
