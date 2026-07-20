@@ -19,8 +19,8 @@ const char *password      = "Interns123!";
 // MQTT Broker Settings
 const char *mqtt_broker   = "192.168.60.6"; 
 const int   mqtt_port     = 1883;           
-const char *mqtt_username = "esp1";         
-const char *mqtt_password = "public"; 
+const char *mqtt_username = "RGB1";         
+const char *mqtt_password = "1"; 
 
 // Topic Subscriptions
 const char *mqtt_topic        = "lights/RGB/box1"; 
