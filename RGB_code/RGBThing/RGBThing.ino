@@ -6,7 +6,7 @@
 // 1. SYSTEM CONFIGURATION & HARDWARE SETTINGS
 // ==========================================
 #define NUM_LEDS 50              // Total physical LED count
-#define LEDS_PER_SEGMENT 10       // Desired number of LEDs per segment
+#define LEDS_PER_SEGMENT 50       // Desired number of LEDs per segment
 #define DATA_PIN 4                // Pin output to LED strip data line
 
 // Non-blocking Animation Limits
@@ -30,7 +30,7 @@ const char *will_topic        = "lights/RGB/box1/connection";
 
 bool invertRedGreen = true; //switch red and green (true for seed lights, false for strips)
 
-
+int customColor[3];
 
 // ==========================================
 // 2. COMPILE-TIME AUTOMATIC SAFETY MATH
@@ -214,6 +214,12 @@ void drawPatterns(int pulseIndex, int distance) {
       setLedSafe(centerPos + distance, lBlueColor);
       setLedSafe(centerPos - distance, lBlueColor);
     } 
+    
+    else if (drawColor == CRGB::Brown) { //custom color (brown is placeholder)
+      CRGB customColorRGB = CHSV(customColor[0], customColor[1], customColor[2]);
+      setLedSafe(centerPos + distance, customColorRGB);
+      setLedSafe(centerPos - distance, customColorRGB);
+    }
     else {
       setLedSafe(centerPos + distance, drawColor);
       setLedSafe(centerPos - distance, drawColor);
@@ -273,9 +279,19 @@ void handleModeMessage(String message) {
   else if (message == "3")  spawnPulse(CRGB::BlueViolet);
   else if (message == "4")  spawnPulse(CRGB::Black); 
   else if (message == "5")  spawnPulse(CRGB::White);
-  else if (message == "6")  spawnPulse(CRGB::HotPink);
-  else if (message == "7")  spawnPulse(CRGB::LightBlue);
+  else if (message.substring(0, 3) = "hsv"){ //inputting custom colors from node-RED in this format: hsv(hue, saturation%, value%)
+    message = message.substring(4);
+    int firstCommaIndex = message.indexOf(",");
+    customColor[0] = message.substring(0, firstCommaIndex).toInt() * 255 / 360; //mappping the 0-360 hue values to 0-255 and saving in array
+    message = message.substring(firstCommaIndex + 2);
+    int secondCommaIndex = message.indexOf(",");
+    customColor[1] = message.substring(0, secondCommaIndex - 1).toInt() * 255 / 100; //mappping the 0-100 saturation values to 0-255 and saving in array
+    message = message.substring(secondCommaIndex + 2) ;
+    customColor[2] = message.substring(0, message.length() - 2).toInt() * 255 / 100; //mappping the 0-100 value values to 0-255 and saving in array
+    spawnPulse(CRGB::Brown); //temporary color that we WILL NOT USE for anything else (it crashes the ESP if we dont do this)
+  }
 }
+//
 
 void handleSpeedMessage(String message) {
   int parsedSpeed = message.toInt(); // Fixed: safely parses numeric text value strings
