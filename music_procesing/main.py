@@ -142,6 +142,7 @@ def main():
 
     # Phase A: Initialize MQTT Client
     client = mqtt.Client(callback_api_version=mqtt.CallbackAPIVersion.VERSION2)
+    client.username_pw_set("MusicBox", "HilliardMusicBox") 
     client.on_message = on_message
 
     # Persistent Connection Retry Loop
