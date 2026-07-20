@@ -28,7 +28,7 @@ const char *speed_topic       = "lights/RGB/speed";
 const char *brightness_topic  = "lights/RGB/brightness";
 const char *will_topic        = "lights/RGB/box1/connection"; 
 
-
+bool invertRedGreen = false; //switch red and green (defult false)
 
 
 
@@ -88,7 +88,12 @@ void setup() {
   delay(1000); 
   
   // FastLED Setup
-  FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+  if (invertRedGreen){ // inverted RGB setup
+     FastLED.addLeds<WS2812B, DATA_PIN, RGB>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip);
+  }
+  else{ //origional RGB setup
+    FastLED.addLeds<WS2812B, DATA_PIN, GRB>(leds, NUM_LEDS).setCorrection(TypicalLEDStrip); 
+  }
   FastLED.setBrightness(currentBrightness);
   FastLED.clear();
   FastLED.show();
