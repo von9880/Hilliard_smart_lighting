@@ -5,8 +5,8 @@
 // ==========================================
 // 1. SYSTEM CONFIGURATION & HARDWARE SETTINGS
 // ==========================================
-#define NUM_LEDS 50              // Total physical LED count
-#define LEDS_PER_SEGMENT 50       // Desired number of LEDs per segment
+#define NUM_LEDS 144              // Total physical LED count
+#define LEDS_PER_SEGMENT 48      // Desired number of LEDs per segment
 #define DATA_PIN 4                // Pin output to LED strip data line
 
 // Non-blocking Animation Limits
@@ -28,7 +28,8 @@ const char *speed_topic       = "lights/RGB/speed";
 const char *brightness_topic  = "lights/RGB/brightness";
 const char *will_topic        = "lights/RGB/box1/connection"; 
 
-bool invertRedGreen = true; //switch red and green (true for seed lights, false for strips)
+bool invertRedGreen = true; //switch red and green (seed lights)
+//bool invertRedGreen = false; //(LED strip lights)
 
 int customColor[3];
 
@@ -53,7 +54,7 @@ unsigned long lastFrameTime = 0;
 
 
 int ledSpeed = 15;                // Tracks your animation timing frame window
-int currentBrightness = 100;      // Tracks dynamic strip intensity limits
+int currentBrightness = 50;      // Tracks dynamic strip intensity limits
 
 // Pulse Tracking Parallel Arrays
 int pulsePositions[MAX_PULSES];
@@ -279,19 +280,23 @@ void handleModeMessage(String message) {
   else if (message == "3")  spawnPulse(CRGB::BlueViolet);
   else if (message == "4")  spawnPulse(CRGB::Black); 
   else if (message == "5")  spawnPulse(CRGB::White);
-  else if (message.substring(0, 3) = "hsv"){ //inputting custom colors from node-RED in this format: hsv(hue, saturation%, value%)
-    message = message.substring(4);
+  else if (message.substring(0, 3) = "{\"h"){ //inputting custom colors from node-RED in this format: hsv(hue, saturation%, value%)
+    message = message.substring(5);
+    Serial.println(message);
     int firstCommaIndex = message.indexOf(",");
-    customColor[0] = message.substring(0, firstCommaIndex).toInt() * 255 / 360; //mappping the 0-360 hue values to 0-255 and saving in array
-    message = message.substring(firstCommaIndex + 2);
+    customColor[0] = message.substring(0, firstCommaIndex).toInt() * 255 / 360;
+    Serial.println(customColor[0]);
+    message = message.substring(firstCommaIndex + 5);
+    Serial.println(message);
     int secondCommaIndex = message.indexOf(",");
-    customColor[1] = message.substring(0, secondCommaIndex - 1).toInt() * 255 / 100; //mappping the 0-100 saturation values to 0-255 and saving in array
-    message = message.substring(secondCommaIndex + 2) ;
-    customColor[2] = message.substring(0, message.length() - 2).toInt() * 255 / 100; //mappping the 0-100 value values to 0-255 and saving in array
+    customColor[1] = message.substring(0, secondCommaIndex).toInt() * 255 / 100;
+    Serial.println(customColor[1]);
+    customColor[2] = message.substring(secondCommaIndex + 5, message.length() - 1).toInt() * 255 / 100;
+    Serial.println(customColor[2]);
     spawnPulse(CRGB::Brown); //temporary color that we WILL NOT USE for anything else (it crashes the ESP if we dont do this)
   }
 }
-//
+//{"h":205.20000000000002,"s":49,"v":100}
 
 void handleSpeedMessage(String message) {
   int parsedSpeed = message.toInt(); // Fixed: safely parses numeric text value strings
