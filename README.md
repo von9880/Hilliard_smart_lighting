@@ -12,10 +12,14 @@ Password: HilliardAC#n
 ### Node-RED Broker
 Username: Node-RED  
 Password: HilliardNode-RED
-### Node-RED UI
-Username: Hilliard  
-Password: Sm3lls-Lik3-Sad!
 ### Music Processing
 Username: MusicBox  
 Password: HilliardMusicBox
 
+## Other Usernames and Passwords
+### Node-RED Admin Account
+Username: intern
+Password: Nut-3nact-D3pict!
+### Node-RED UI/User Account
+Username: Hilliard  
+Password: Sm3lls-Lik3-Sad!
