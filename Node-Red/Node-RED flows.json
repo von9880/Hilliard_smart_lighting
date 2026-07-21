@@ -176,7 +176,7 @@
         "tab": "43a010b933015119",
         "order": 3,
         "disp": true,
-        "width": 6,
+        "width": 8,
         "collapse": false,
         "className": ""
     },
@@ -187,7 +187,7 @@
         "tab": "43a010b933015119",
         "order": 1,
         "disp": true,
-        "width": 6,
+        "width": 8,
         "collapse": false,
         "className": ""
     },
@@ -198,7 +198,7 @@
         "tab": "8e2ad3dba739b91b",
         "order": 1,
         "disp": true,
-        "width": 6,
+        "width": 8,
         "collapse": true,
         "className": ""
     },
@@ -209,7 +209,7 @@
         "tab": "8e2ad3dba739b91b",
         "order": 3,
         "disp": true,
-        "width": 6,
+        "width": 8,
         "collapse": true,
         "className": ""
     },
@@ -220,7 +220,7 @@
         "tab": "43a010b933015119",
         "order": 2,
         "disp": true,
-        "width": 6,
+        "width": 8,
         "collapse": false,
         "className": ""
     },
@@ -231,7 +231,7 @@
         "tab": "8e2ad3dba739b91b",
         "order": 2,
         "disp": true,
-        "width": 6,
+        "width": 8,
         "collapse": true,
         "className": ""
     },
@@ -241,6 +241,70 @@
         "name": "Testing",
         "tab": "8e2ad3dba739b91b",
         "order": 4,
+        "disp": true,
+        "width": 8,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "cd03110487b22a94",
+        "type": "ui_tab",
+        "name": "Advanced Controls",
+        "icon": "dashboard",
+        "order": 3,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "82afc0ace5fe2a89",
+        "type": "ui_group",
+        "name": "RGB Modes",
+        "tab": "cd03110487b22a94",
+        "order": 2,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a56ec3c6e39327b4",
+        "type": "ui_group",
+        "name": "RGB Advanced Controls",
+        "tab": "cd03110487b22a94",
+        "order": 3,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "a607c65d5057eb92",
+        "type": "ui_group",
+        "name": "RGB Color Pickers",
+        "tab": "cd03110487b22a94",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "b41990b70711093a",
+        "type": "ui_group",
+        "name": "A/C Advanced Controls",
+        "tab": "cd03110487b22a94",
+        "order": 4,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "94bc18b6bd7cfe86",
+        "type": "ui_group",
+        "name": "A/C Modes",
+        "tab": "cd03110487b22a94",
+        "order": 5,
         "disp": true,
         "width": 6,
         "collapse": false,
@@ -403,7 +467,7 @@
         "initialize": "",
         "finalize": "",
         "libs": [],
-        "x": 330,
+        "x": 390,
         "y": 360,
         "wires": [
             []
@@ -443,7 +507,7 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 310,
+        "x": 270,
         "y": 500,
         "wires": []
     },
@@ -458,22 +522,12 @@
         "wires": []
     },
     {
-        "id": "8bc45f0afa48af52",
-        "type": "comment",
-        "z": "99166529b4135d9a",
-        "name": "May or may not use:",
-        "info": "",
-        "x": 870,
-        "y": 120,
-        "wires": []
-    },
-    {
         "id": "f704686e54e4d5e7",
         "type": "ui_button",
         "z": "99166529b4135d9a",
         "name": "",
         "group": "57bc8eaeb4e0555f",
-        "order": 1,
+        "order": 2,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -614,9 +668,144 @@
         "seg2": "",
         "diff": false,
         "className": "",
-        "x": 890,
-        "y": 180,
+        "x": 1050,
+        "y": 280,
         "wires": []
+    },
+    {
+        "id": "e0a8974a4ddd5fa4",
+        "type": "function",
+        "z": "99166529b4135d9a",
+        "name": "Set up box count",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nglobal.set(\"numBoxesOnline\", 0);",
+        "finalize": "",
+        "libs": [],
+        "x": 770,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a9919f9685256323",
+        "type": "inject",
+        "z": "99166529b4135d9a",
+        "name": "Num Boxes Online",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "numBoxesOnline",
+        "payloadType": "global",
+        "x": 800,
+        "y": 280,
+        "wires": [
+            [
+                "a187e646f90a785f"
+            ]
+        ]
+    },
+    {
+        "id": "b4286c63c1d534ce",
+        "type": "mqtt out",
+        "z": "99166529b4135d9a",
+        "name": "",
+        "topic": "lights",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 270,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "9a6d409ea20396a3",
+        "type": "ui_button",
+        "z": "99166529b4135d9a",
+        "name": "",
+        "group": "4f602746b31f1c0c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Test lights",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "test",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 560,
+        "wires": [
+            [
+                "b4286c63c1d534ce"
+            ]
+        ]
+    },
+    {
+        "id": "3927b61bfb0e0c69",
+        "type": "mqtt out",
+        "z": "99166529b4135d9a",
+        "name": "",
+        "topic": "lights",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 270,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "eebd090581ce4644",
+        "type": "ui_button",
+        "z": "99166529b4135d9a",
+        "name": "",
+        "group": "a607c65d5057eb92",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Test lights",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "test",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "3927b61bfb0e0c69"
+            ]
+        ]
     },
     {
         "id": "2975d9316a6a0cc1",
@@ -635,7 +824,8 @@
         "y": 100,
         "wires": [
             [
-                "4e667f3fdb0353d8"
+                "4e667f3fdb0353d8",
+                "b8613c1cbcb37418"
             ]
         ]
     },
@@ -653,10 +843,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
-                "2e89da02246a732d"
+                "2e89da02246a732d",
+                "55c077c74be3eefb"
             ]
         ]
     },
@@ -674,10 +865,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 220,
+        "y": 300,
         "wires": [
             [
-                "0dfc50cb7b79a0c5"
+                "0dfc50cb7b79a0c5",
+                "29d1cba2e0dd3329"
             ]
         ]
     },
@@ -695,83 +887,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 280,
+        "y": 400,
         "wires": [
             [
-                "f85d08151a7cb68d"
-            ]
-        ]
-    },
-    {
-        "id": "e623b77542ebb1dd",
-        "type": "mqtt out",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights/RGB/box1",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1280,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "74a9cddb98329a36",
-        "type": "mqtt in",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "25629b3ce26ccf6a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 610,
-        "y": 100,
-        "wires": [
-            [
-                "3fd3ddb70389507d"
-            ]
-        ]
-    },
-    {
-        "id": "3fd3ddb70389507d",
-        "type": "change",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "RGBMode",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 860,
-        "y": 100,
-        "wires": [
-            [
-                "f87763185f0e3439",
-                "56b08d5df3b8956f",
-                "62f367ae5e0b1e12",
-                "79b3cfb3cbd111b9",
-                "7b94c2bb157743ec",
-                "dd1cf321bc26f8cc",
-                "35ee1542141f2a47",
-                "6fd31a61de411f89"
+                "f85d08151a7cb68d",
+                "735d74664a4d0459"
             ]
         ]
     },
@@ -783,7 +903,7 @@
         "rules": [
             {
                 "t": "set",
-                "p": "RGBMode",
+                "p": "RGB1Mode",
                 "pt": "global",
                 "to": "payload",
                 "tot": "msg"
@@ -794,8 +914,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 840,
-        "y": 40,
+        "x": 400,
+        "y": 2800,
         "wires": [
             []
         ]
@@ -819,33 +939,10 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 660,
+        "x": 420,
+        "y": 1080,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "f87763185f0e3439",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox1Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 100,
-        "wires": [
-            [
-                "e623b77542ebb1dd"
-            ]
         ]
     },
     {
@@ -867,8 +964,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 720,
+        "x": 420,
+        "y": 1140,
         "wires": [
             []
         ]
@@ -892,8 +989,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 780,
+        "x": 420,
+        "y": 1200,
         "wires": [
             []
         ]
@@ -917,52 +1014,11 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 840,
+        "x": 420,
+        "y": 1260,
         "wires": [
             []
         ]
-    },
-    {
-        "id": "56b08d5df3b8956f",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox2Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 160,
-        "wires": [
-            [
-                "ee2215d569593d9e"
-            ]
-        ]
-    },
-    {
-        "id": "ee2215d569593d9e",
-        "type": "mqtt out",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights/RGB/box2",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1280,
-        "y": 160,
-        "wires": []
     },
     {
         "id": "d285c09344c1502c",
@@ -983,8 +1039,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 900,
+        "x": 420,
+        "y": 1320,
         "wires": [
             []
         ]
@@ -1008,8 +1064,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 960,
+        "x": 420,
+        "y": 1380,
         "wires": [
             []
         ]
@@ -1033,8 +1089,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 1020,
+        "x": 420,
+        "y": 1440,
         "wires": [
             []
         ]
@@ -1058,8 +1114,8 @@
         "from": "",
         "to": "",
         "reg": false,
-        "x": 380,
-        "y": 1080,
+        "x": 420,
+        "y": 1500,
         "wires": [
             []
         ]
@@ -1078,10 +1134,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 340,
+        "y": 500,
         "wires": [
             [
-                "ca64ced70e587118"
+                "ca64ced70e587118",
+                "81445c42bb52febd"
             ]
         ]
     },
@@ -1099,10 +1156,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 400,
+        "y": 600,
         "wires": [
             [
-                "bf01b5189c7ee6f4"
+                "bf01b5189c7ee6f4",
+                "cba9fdf9a0276754"
             ]
         ]
     },
@@ -1120,10 +1178,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 460,
+        "y": 700,
         "wires": [
             [
-                "a8f9e0a17e3ffcde"
+                "a8f9e0a17e3ffcde",
+                "6d5dccff31458da5"
             ]
         ]
     },
@@ -1141,258 +1200,13 @@
         "rh": 0,
         "inputs": 0,
         "x": 160,
-        "y": 520,
+        "y": 800,
         "wires": [
             [
-                "4a7b117fb9e4e59e"
+                "4a7b117fb9e4e59e",
+                "bbdc57df37538297"
             ]
         ]
-    },
-    {
-        "id": "c9e1ceaa7522827a",
-        "type": "mqtt out",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights/RGB/box3",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1280,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "62f367ae5e0b1e12",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox3Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 220,
-        "wires": [
-            [
-                "c9e1ceaa7522827a"
-            ]
-        ]
-    },
-    {
-        "id": "79b3cfb3cbd111b9",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox4Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 280,
-        "wires": [
-            [
-                "51d1c301e3362a1a"
-            ]
-        ]
-    },
-    {
-        "id": "51d1c301e3362a1a",
-        "type": "mqtt out",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights/RGB/box4",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1280,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "8ddec161fe60a327",
-        "type": "mqtt out",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights/RGB/box5",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1280,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "7b94c2bb157743ec",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox5Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 340,
-        "wires": [
-            [
-                "8ddec161fe60a327"
-            ]
-        ]
-    },
-    {
-        "id": "dd1cf321bc26f8cc",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox6Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 400,
-        "wires": [
-            [
-                "90caddefadb80417"
-            ]
-        ]
-    },
-    {
-        "id": "90caddefadb80417",
-        "type": "mqtt out",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights/RGB/box6",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1280,
-        "y": 400,
-        "wires": []
-    },
-    {
-        "id": "1670d1cdc384ee91",
-        "type": "mqtt out",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights/RGB/box7",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1280,
-        "y": 460,
-        "wires": []
-    },
-    {
-        "id": "35ee1542141f2a47",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox7Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 460,
-        "wires": [
-            [
-                "1670d1cdc384ee91"
-            ]
-        ]
-    },
-    {
-        "id": "6fd31a61de411f89",
-        "type": "switch",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "property": "RGBbox8Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1090,
-        "y": 520,
-        "wires": [
-            [
-                "9768e7c7f197a750"
-            ]
-        ]
-    },
-    {
-        "id": "9768e7c7f197a750",
-        "type": "mqtt out",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "topic": "lights/RGB/box8",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1280,
-        "y": 520,
-        "wires": []
     },
     {
         "id": "c58540584e33d8b4",
@@ -1400,8 +1214,8 @@
         "z": "86455c015ae650a0",
         "name": "Sending code to boxes",
         "info": "Switches message from music processing to a number representing color mode (using global.RGBmode)\nIf the switch is on the message will be pushed to that respective box",
-        "x": 1140,
-        "y": 40,
+        "x": 880,
+        "y": 20,
         "wires": []
     },
     {
@@ -1410,8 +1224,8 @@
         "z": "86455c015ae650a0",
         "name": "Switches and sliders",
         "info": "If the switch is on the respective variable is set to true\nSliders send out their respective number through MQTT",
-        "x": 130,
-        "y": 600,
+        "x": 170,
+        "y": 1020,
         "wires": []
     },
     {
@@ -1423,59 +1237,6 @@
         "x": 130,
         "y": 40,
         "wires": []
-    },
-    {
-        "id": "62451de708acfbf5",
-        "type": "ui_dropdown",
-        "z": "86455c015ae650a0",
-        "name": "",
-        "label": "RGB Mode",
-        "tooltip": "",
-        "place": "Select option",
-        "group": "6b0c5b7e55a41902",
-        "order": 1,
-        "width": 0,
-        "height": 0,
-        "passthru": true,
-        "multiple": false,
-        "options": [
-            {
-                "label": "Fire",
-                "value": "1",
-                "type": "str"
-            },
-            {
-                "label": "Grass",
-                "value": "2",
-                "type": "str"
-            },
-            {
-                "label": "Ocean",
-                "value": "3",
-                "type": "str"
-            },
-            {
-                "label": "Rainbow",
-                "value": "4",
-                "type": "str"
-            },
-            {
-                "label": "Christmas",
-                "value": "5",
-                "type": "str"
-            }
-        ],
-        "payload": "",
-        "topic": "topic",
-        "topicType": "msg",
-        "className": "",
-        "x": 630,
-        "y": 40,
-        "wires": [
-            [
-                "a88d350b4b3217be"
-            ]
-        ]
     },
     {
         "id": "be9ad89acf9807cf",
@@ -1503,8 +1264,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 110,
-        "y": 660,
+        "x": 150,
+        "y": 1080,
         "wires": [
             [
                 "66249743e24ee0e5"
@@ -1537,8 +1298,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 110,
-        "y": 720,
+        "x": 150,
+        "y": 1140,
         "wires": [
             [
                 "ead33867e74a05be"
@@ -1571,8 +1332,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 110,
-        "y": 780,
+        "x": 150,
+        "y": 1200,
         "wires": [
             [
                 "95041610cd605387"
@@ -1605,8 +1366,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 110,
-        "y": 840,
+        "x": 150,
+        "y": 1260,
         "wires": [
             [
                 "634245f5c280755e"
@@ -1639,8 +1400,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 110,
-        "y": 900,
+        "x": 150,
+        "y": 1320,
         "wires": [
             [
                 "d285c09344c1502c"
@@ -1673,8 +1434,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 110,
-        "y": 960,
+        "x": 150,
+        "y": 1380,
         "wires": [
             [
                 "46b9dadd790843a8"
@@ -1707,8 +1468,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 110,
-        "y": 1020,
+        "x": 150,
+        "y": 1440,
         "wires": [
             [
                 "11091f14fde8c476"
@@ -1741,8 +1502,8 @@
         "offcolor": "",
         "animate": false,
         "className": "",
-        "x": 110,
-        "y": 1080,
+        "x": 150,
+        "y": 1500,
         "wires": [
             [
                 "70bd679a4096b964"
@@ -1788,7 +1549,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 400,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -1809,7 +1570,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 400,
-        "y": 220,
+        "y": 300,
         "wires": []
     },
     {
@@ -1830,7 +1591,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 400,
-        "y": 280,
+        "y": 400,
         "wires": []
     },
     {
@@ -1851,7 +1612,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 400,
-        "y": 340,
+        "y": 500,
         "wires": []
     },
     {
@@ -1872,7 +1633,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 400,
-        "y": 400,
+        "y": 600,
         "wires": []
     },
     {
@@ -1893,7 +1654,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 400,
-        "y": 460,
+        "y": 700,
         "wires": []
     },
     {
@@ -1914,7 +1675,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 400,
-        "y": 520,
+        "y": 800,
         "wires": []
     },
     {
@@ -1926,8 +1687,8 @@
         "tooltip": "",
         "group": "6b0c5b7e55a41902",
         "order": 3,
-        "width": "0",
-        "height": "0",
+        "width": 0,
+        "height": 0,
         "passthru": true,
         "outs": "end",
         "topic": "topic",
@@ -1936,8 +1697,8 @@
         "max": "50",
         "step": 1,
         "className": "",
-        "x": 110,
-        "y": 1140,
+        "x": 150,
+        "y": 1560,
         "wires": [
             [
                 "61a48d76ddb75613"
@@ -1958,8 +1719,8 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 350,
-        "y": 1140,
+        "x": 390,
+        "y": 1560,
         "wires": []
     },
     {
@@ -1981,8 +1742,8 @@
         "max": "100",
         "step": 1,
         "className": "",
-        "x": 100,
-        "y": 1200,
+        "x": 140,
+        "y": 1620,
         "wires": [
             [
                 "944b1491462e91d8"
@@ -2003,9 +1764,4646 @@
         "correl": "",
         "expiry": "",
         "broker": "25629b3ce26ccf6a",
-        "x": 360,
-        "y": 1200,
+        "x": 400,
+        "y": 1620,
         "wires": []
+    },
+    {
+        "id": "b51585e8b67bd1a7",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB2Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 2860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13b0fb027dcbea6c",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB3Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 2920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bebb6eb476c1ca24",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB4Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 2980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "75db48ef10e9dac2",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB 3 Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "82afc0ace5fe2a89",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 2920,
+        "wires": [
+            [
+                "13b0fb027dcbea6c"
+            ]
+        ]
+    },
+    {
+        "id": "a860a032955e7657",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB 4 Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "82afc0ace5fe2a89",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 2980,
+        "wires": [
+            [
+                "bebb6eb476c1ca24"
+            ]
+        ]
+    },
+    {
+        "id": "0b6b51d937b81dd0",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB5Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 3040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0944956250926ae7",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB6Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 3100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "934a76b062cfdffd",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB 5 Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "82afc0ace5fe2a89",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 3040,
+        "wires": [
+            [
+                "0b6b51d937b81dd0"
+            ]
+        ]
+    },
+    {
+        "id": "3546eda30e1f55aa",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB 6 Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "82afc0ace5fe2a89",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 3100,
+        "wires": [
+            [
+                "0944956250926ae7"
+            ]
+        ]
+    },
+    {
+        "id": "511585d80f755491",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB7Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 3160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f72b29a1b0127edd",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB8Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 3220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "81e6fea2be394260",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB 7 Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "82afc0ace5fe2a89",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 3160,
+        "wires": [
+            [
+                "511585d80f755491"
+            ]
+        ]
+    },
+    {
+        "id": "a57d06195d9d451b",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB 8 Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "82afc0ace5fe2a89",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 3220,
+        "wires": [
+            [
+                "f72b29a1b0127edd"
+            ]
+        ]
+    },
+    {
+        "id": "17e205a16ca8610e",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "RGB Mode Setup",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nglobal.set(\"RGBMode\", \"5\");\nglobal.set(\"RGB1Mode\", \"4\");\nglobal.set(\"RGB2Mode\", \"4\");\nglobal.set(\"RGB3Mode\", \"4\");\nglobal.set(\"RGB4Mode\", \"4\");\nglobal.set(\"RGB5Mode\", \"4\");\nglobal.set(\"RGB6Mode\", \"4\");\nglobal.set(\"RGB7Mode\", \"4\");\nglobal.set(\"RGB8Mode\", \"4\");",
+        "finalize": "",
+        "libs": [],
+        "x": 1310,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f7fa6140e2abdcea",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGBMode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1500,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0ce08a78b21fc11a",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "6b0c5b7e55a41902",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 1290,
+        "y": 200,
+        "wires": [
+            [
+                "f7fa6140e2abdcea"
+            ]
+        ]
+    },
+    {
+        "id": "f651bb54913b5ea8",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB1 Advanced Controls",
+        "tooltip": "",
+        "group": "a56ec3c6e39327b4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 1800,
+        "wires": [
+            [
+                "a3887e5a6c0e668b"
+            ]
+        ]
+    },
+    {
+        "id": "32b0e318a4f16d1c",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB2 Advanced Controls",
+        "tooltip": "",
+        "group": "a56ec3c6e39327b4",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 1860,
+        "wires": [
+            [
+                "944935fa8b8975cc"
+            ]
+        ]
+    },
+    {
+        "id": "9fedf30cfc3d8e56",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB3 Advanced Controls",
+        "tooltip": "",
+        "group": "a56ec3c6e39327b4",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 1920,
+        "wires": [
+            [
+                "e63432ec9e59171a"
+            ]
+        ]
+    },
+    {
+        "id": "82c0d57bca2ecfd9",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB4 Advanced Controls",
+        "tooltip": "",
+        "group": "a56ec3c6e39327b4",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 1980,
+        "wires": [
+            [
+                "ebd3d6ba6bb3619f"
+            ]
+        ]
+    },
+    {
+        "id": "c79e0c94e287878c",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB5 Advanced Controls",
+        "tooltip": "",
+        "group": "a56ec3c6e39327b4",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 2040,
+        "wires": [
+            [
+                "7671b8c1c9529fcd"
+            ]
+        ]
+    },
+    {
+        "id": "a09439c5b73e9f2a",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB6 Advanced Controls",
+        "tooltip": "",
+        "group": "a56ec3c6e39327b4",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 2100,
+        "wires": [
+            [
+                "3e3e97918d120596"
+            ]
+        ]
+    },
+    {
+        "id": "cd78e7dcca06441a",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB7 Advanced Controls",
+        "tooltip": "",
+        "group": "a56ec3c6e39327b4",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 2160,
+        "wires": [
+            [
+                "d50b569d2f5684a5"
+            ]
+        ]
+    },
+    {
+        "id": "f6204098dfe05e35",
+        "type": "ui_switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB8 Advanced Controls",
+        "tooltip": "",
+        "group": "a56ec3c6e39327b4",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 2220,
+        "wires": [
+            [
+                "2642b1111f2f80c3"
+            ]
+        ]
+    },
+    {
+        "id": "a3887e5a6c0e668b",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB1AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bbeddfeddb766e0c",
+        "type": "mqtt in",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "25629b3ce26ccf6a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 770,
+        "y": 1020,
+        "wires": [
+            [
+                "608db390c43dfd86",
+                "5f75e8225507b168",
+                "89420efed6cf64b0",
+                "7073d07320965c3d",
+                "b5e139ee7f4c3585",
+                "ee72ca202dc18bba",
+                "68e14df14940eab7",
+                "67908a0ab21a91a4"
+            ]
+        ]
+    },
+    {
+        "id": "944935fa8b8975cc",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB2AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1860,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e63432ec9e59171a",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB3AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1920,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ebd3d6ba6bb3619f",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB4AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 1980,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7671b8c1c9529fcd",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB5AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2040,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3e3e97918d120596",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB6AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d50b569d2f5684a5",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB7AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2642b1111f2f80c3",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB8AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "972eda64bd7310df",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "RGB Advanced Setting Setup",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nglobal.set(\"RGB1AdvToggle\", false);\nglobal.set(\"RGB2AdvToggle\", false);\nglobal.set(\"RGB3AdvToggle\", false);\nglobal.set(\"RGB4AdvToggle\", false);\nglobal.set(\"RGB5AdvToggle\", false);\nglobal.set(\"RGB6AdvToggle\", false);\nglobal.set(\"RGB7AdvToggle\", false);\nglobal.set(\"RGB8AdvToggle\", false);",
+        "finalize": "",
+        "libs": [],
+        "x": 1570,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d86f838c59147158",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Box Toggle Setup",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nglobal.set(\"RGBBox1Toggle\", true);\nglobal.set(\"RGBBox2Toggle\", true);\nglobal.set(\"RGBBox3Toggle\", true);\nglobal.set(\"RGBBox4Toggle\", true);\nglobal.set(\"RGBBox5Toggle\", true);\nglobal.set(\"RGBBox6Toggle\", true);\nglobal.set(\"RGBBox7Toggle\", true);\nglobal.set(\"RGBBox8Toggle\", true);\n",
+        "finalize": "",
+        "libs": [],
+        "x": 1830,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8f8a3ac9c98a563",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB1Custom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ba1b54cce75108ab",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGBCustom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1500,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ed1b516852b69427",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB2Custom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "abc16861ee76f69c",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB3Custom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "063189ccfd5182a5",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB4Custom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2480,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa370b587d51ec31",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB5Custom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1d5e1a430d43b874",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB6Custom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7059a60b43cc7195",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB7Custom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2660,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28afd9f36ba8f012",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "RGB8Custom",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 410,
+        "y": 2720,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aefc7e9d9f1914cb",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box1",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1860,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "0de955c8a683ea41",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box2",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1860,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "65b3f06ae46b7542",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box3",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1860,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "d15a1f6ed5732a6e",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box4",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1860,
+        "y": 940,
+        "wires": []
+    },
+    {
+        "id": "4a05d8668160cda2",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box5",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1860,
+        "y": 1120,
+        "wires": []
+    },
+    {
+        "id": "11e7b4f17f7f0850",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box6",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1860,
+        "y": 1300,
+        "wires": []
+    },
+    {
+        "id": "c4e0e2aa757779c3",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box7",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1860,
+        "y": 1480,
+        "wires": []
+    },
+    {
+        "id": "f38ad667e8423eb4",
+        "type": "mqtt out",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "topic": "lights/RGB/box8",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1860,
+        "y": 1660,
+        "wires": []
+    },
+    {
+        "id": "da765b1750c33e85",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "On/Off Checker",
+        "property": "RGBbox1Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 400,
+        "wires": [
+            [
+                "aefc7e9d9f1914cb"
+            ]
+        ]
+    },
+    {
+        "id": "34f24aabf8e26fdd",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 340,
+        "wires": [
+            [
+                "da765b1750c33e85"
+            ]
+        ]
+    },
+    {
+        "id": "59140747cfb5d8ad",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB1Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 420,
+        "wires": [
+            [
+                "da765b1750c33e85"
+            ]
+        ]
+    },
+    {
+        "id": "64d46acc95c08722",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGB1Mode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 440,
+        "wires": [
+            [
+                "59140747cfb5d8ad"
+            ],
+            [
+                "77cec39fb7dae37b"
+            ]
+        ]
+    },
+    {
+        "id": "608db390c43dfd86",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Adv Checker ",
+        "property": "RGB1AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 400,
+        "wires": [
+            [
+                "488fd04b2d749808"
+            ],
+            [
+                "64d46acc95c08722"
+            ]
+        ]
+    },
+    {
+        "id": "77cec39fb7dae37b",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB1Custom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 460,
+        "wires": [
+            [
+                "da765b1750c33e85"
+            ]
+        ]
+    },
+    {
+        "id": "488fd04b2d749808",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGBMode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 360,
+        "wires": [
+            [
+                "34f24aabf8e26fdd"
+            ],
+            [
+                "33460f53053ebe71"
+            ]
+        ]
+    },
+    {
+        "id": "33460f53053ebe71",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBCustom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 380,
+        "wires": [
+            [
+                "da765b1750c33e85"
+            ]
+        ]
+    },
+    {
+        "id": "c086f1ce27492896",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "On/Off Checker",
+        "property": "RGBbox2Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 580,
+        "wires": [
+            [
+                "0de955c8a683ea41"
+            ]
+        ]
+    },
+    {
+        "id": "46315cd8268e1446",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 520,
+        "wires": [
+            [
+                "c086f1ce27492896"
+            ]
+        ]
+    },
+    {
+        "id": "0b575225eea9d352",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB2Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 600,
+        "wires": [
+            [
+                "c086f1ce27492896"
+            ]
+        ]
+    },
+    {
+        "id": "093ca98aa8e86590",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGB2Mode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 620,
+        "wires": [
+            [
+                "0b575225eea9d352"
+            ],
+            [
+                "b531c686a1eecaa6"
+            ]
+        ]
+    },
+    {
+        "id": "5f75e8225507b168",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Adv Checker ",
+        "property": "RGB2AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 580,
+        "wires": [
+            [
+                "c8e1a6b9a1e4ebd4"
+            ],
+            [
+                "093ca98aa8e86590"
+            ]
+        ]
+    },
+    {
+        "id": "b531c686a1eecaa6",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB2Custom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 640,
+        "wires": [
+            [
+                "c086f1ce27492896"
+            ]
+        ]
+    },
+    {
+        "id": "c8e1a6b9a1e4ebd4",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGBMode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 540,
+        "wires": [
+            [
+                "46315cd8268e1446"
+            ],
+            [
+                "5109b8da3da717f1"
+            ]
+        ]
+    },
+    {
+        "id": "5109b8da3da717f1",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBCustom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 560,
+        "wires": [
+            [
+                "c086f1ce27492896"
+            ]
+        ]
+    },
+    {
+        "id": "7dadbef4d551a456",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "On/Off Checker",
+        "property": "RGBbox3Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 760,
+        "wires": [
+            [
+                "65b3f06ae46b7542"
+            ]
+        ]
+    },
+    {
+        "id": "44dd4e5e445aaebc",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 700,
+        "wires": [
+            [
+                "7dadbef4d551a456"
+            ]
+        ]
+    },
+    {
+        "id": "b7b10ca75d50c1cc",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB3Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 780,
+        "wires": [
+            [
+                "7dadbef4d551a456"
+            ]
+        ]
+    },
+    {
+        "id": "6cb7a463af2f3e40",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGB3Mode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 800,
+        "wires": [
+            [
+                "b7b10ca75d50c1cc"
+            ],
+            [
+                "c6711ed89361e8f6"
+            ]
+        ]
+    },
+    {
+        "id": "89420efed6cf64b0",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Adv Checker ",
+        "property": "RGB3AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 760,
+        "wires": [
+            [
+                "99ca1843cac0a6b5"
+            ],
+            [
+                "6cb7a463af2f3e40"
+            ]
+        ]
+    },
+    {
+        "id": "c6711ed89361e8f6",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB3Custom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 820,
+        "wires": [
+            [
+                "7dadbef4d551a456"
+            ]
+        ]
+    },
+    {
+        "id": "99ca1843cac0a6b5",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGBMode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 720,
+        "wires": [
+            [
+                "44dd4e5e445aaebc"
+            ],
+            [
+                "94e9437c5a119f24"
+            ]
+        ]
+    },
+    {
+        "id": "94e9437c5a119f24",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBCustom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 740,
+        "wires": [
+            [
+                "7dadbef4d551a456"
+            ]
+        ]
+    },
+    {
+        "id": "5449aca2b3236c8b",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "On/Off Checker",
+        "property": "RGBbox4Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 940,
+        "wires": [
+            [
+                "d15a1f6ed5732a6e"
+            ]
+        ]
+    },
+    {
+        "id": "43d75ab7e1fbc4d7",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 880,
+        "wires": [
+            [
+                "5449aca2b3236c8b"
+            ]
+        ]
+    },
+    {
+        "id": "babfadcdfbdf1657",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB4Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 960,
+        "wires": [
+            [
+                "5449aca2b3236c8b"
+            ]
+        ]
+    },
+    {
+        "id": "cc15950b9c8f0767",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGB4Mode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 980,
+        "wires": [
+            [
+                "babfadcdfbdf1657"
+            ],
+            [
+                "c1bea30ee551827b"
+            ]
+        ]
+    },
+    {
+        "id": "7073d07320965c3d",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Adv Checker ",
+        "property": "RGB4AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 940,
+        "wires": [
+            [
+                "3f62ceaf1e09fa2c"
+            ],
+            [
+                "cc15950b9c8f0767"
+            ]
+        ]
+    },
+    {
+        "id": "c1bea30ee551827b",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB4Custom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1000,
+        "wires": [
+            [
+                "5449aca2b3236c8b"
+            ]
+        ]
+    },
+    {
+        "id": "3f62ceaf1e09fa2c",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGBMode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 900,
+        "wires": [
+            [
+                "43d75ab7e1fbc4d7"
+            ],
+            [
+                "45d8065d862c1170"
+            ]
+        ]
+    },
+    {
+        "id": "45d8065d862c1170",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBCustom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 920,
+        "wires": [
+            [
+                "5449aca2b3236c8b"
+            ]
+        ]
+    },
+    {
+        "id": "4802f257baa05620",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "On/Off Checker",
+        "property": "RGBbox5Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 1120,
+        "wires": [
+            [
+                "4a05d8668160cda2"
+            ]
+        ]
+    },
+    {
+        "id": "d456e439b740a937",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1060,
+        "wires": [
+            [
+                "4802f257baa05620"
+            ]
+        ]
+    },
+    {
+        "id": "0be44a80da56b142",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB5Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1140,
+        "wires": [
+            [
+                "4802f257baa05620"
+            ]
+        ]
+    },
+    {
+        "id": "1c48bfc2bc808eae",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGB5Mode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1160,
+        "wires": [
+            [
+                "0be44a80da56b142"
+            ],
+            [
+                "709fee05e155a70c"
+            ]
+        ]
+    },
+    {
+        "id": "b5e139ee7f4c3585",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Adv Checker ",
+        "property": "RGB5AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 1120,
+        "wires": [
+            [
+                "aa9a836c6617f050"
+            ],
+            [
+                "1c48bfc2bc808eae"
+            ]
+        ]
+    },
+    {
+        "id": "709fee05e155a70c",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB5Custom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1180,
+        "wires": [
+            [
+                "4802f257baa05620"
+            ]
+        ]
+    },
+    {
+        "id": "aa9a836c6617f050",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGBMode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1080,
+        "wires": [
+            [
+                "d456e439b740a937"
+            ],
+            [
+                "89bfb01f32013523"
+            ]
+        ]
+    },
+    {
+        "id": "89bfb01f32013523",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBCustom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1100,
+        "wires": [
+            [
+                "4802f257baa05620"
+            ]
+        ]
+    },
+    {
+        "id": "fd47facab9f90e1b",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "On/Off Checker",
+        "property": "RGBbox6Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 1300,
+        "wires": [
+            [
+                "11e7b4f17f7f0850"
+            ]
+        ]
+    },
+    {
+        "id": "571a08d7eb900553",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1240,
+        "wires": [
+            [
+                "fd47facab9f90e1b"
+            ]
+        ]
+    },
+    {
+        "id": "98bce0510404cdc0",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB6Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1320,
+        "wires": [
+            [
+                "fd47facab9f90e1b"
+            ]
+        ]
+    },
+    {
+        "id": "039e09455e964e51",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGB6Mode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1340,
+        "wires": [
+            [
+                "98bce0510404cdc0"
+            ],
+            [
+                "07c04f2caa007944"
+            ]
+        ]
+    },
+    {
+        "id": "ee72ca202dc18bba",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Adv Checker ",
+        "property": "RGB6AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 1300,
+        "wires": [
+            [
+                "576fe1648a39aecc"
+            ],
+            [
+                "039e09455e964e51"
+            ]
+        ]
+    },
+    {
+        "id": "07c04f2caa007944",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB6Custom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1360,
+        "wires": [
+            [
+                "fd47facab9f90e1b"
+            ]
+        ]
+    },
+    {
+        "id": "576fe1648a39aecc",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGBMode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1260,
+        "wires": [
+            [
+                "571a08d7eb900553"
+            ],
+            [
+                "50df7e5610d77fa7"
+            ]
+        ]
+    },
+    {
+        "id": "50df7e5610d77fa7",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBCustom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1280,
+        "wires": [
+            [
+                "fd47facab9f90e1b"
+            ]
+        ]
+    },
+    {
+        "id": "3b219a617056b5a9",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "On/Off Checker",
+        "property": "RGBbox7Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 1480,
+        "wires": [
+            [
+                "c4e0e2aa757779c3"
+            ]
+        ]
+    },
+    {
+        "id": "96542350d7a72410",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1420,
+        "wires": [
+            [
+                "3b219a617056b5a9"
+            ]
+        ]
+    },
+    {
+        "id": "3d75fcd9049af549",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB7Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1500,
+        "wires": [
+            [
+                "3b219a617056b5a9"
+            ]
+        ]
+    },
+    {
+        "id": "40310e1cae357157",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGB7Mode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1520,
+        "wires": [
+            [
+                "3d75fcd9049af549"
+            ],
+            [
+                "aad78ee575ed85f2"
+            ]
+        ]
+    },
+    {
+        "id": "68e14df14940eab7",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Adv Checker ",
+        "property": "RGB7AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 1480,
+        "wires": [
+            [
+                "3e8228c372db2c38"
+            ],
+            [
+                "40310e1cae357157"
+            ]
+        ]
+    },
+    {
+        "id": "aad78ee575ed85f2",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB7Custom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1540,
+        "wires": [
+            [
+                "3b219a617056b5a9"
+            ]
+        ]
+    },
+    {
+        "id": "3e8228c372db2c38",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGBMode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1440,
+        "wires": [
+            [
+                "96542350d7a72410"
+            ],
+            [
+                "3d06e73c1c8d7218"
+            ]
+        ]
+    },
+    {
+        "id": "3d06e73c1c8d7218",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBCustom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1460,
+        "wires": [
+            [
+                "3b219a617056b5a9"
+            ]
+        ]
+    },
+    {
+        "id": "4e585b6b80730d93",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "On/Off Checker",
+        "property": "RGBbox8Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1660,
+        "y": 1660,
+        "wires": [
+            [
+                "f38ad667e8423eb4"
+            ]
+        ]
+    },
+    {
+        "id": "8f0187fd5edd5021",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1600,
+        "wires": [
+            [
+                "4e585b6b80730d93"
+            ]
+        ]
+    },
+    {
+        "id": "962d2b4b74cc1b11",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB8Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1420,
+        "y": 1680,
+        "wires": [
+            [
+                "4e585b6b80730d93"
+            ]
+        ]
+    },
+    {
+        "id": "45a51fcb05de908c",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGB8Mode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1700,
+        "wires": [
+            [
+                "962d2b4b74cc1b11"
+            ],
+            [
+                "9764a20ef08807c0"
+            ]
+        ]
+    },
+    {
+        "id": "67908a0ab21a91a4",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Adv Checker ",
+        "property": "RGB8AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1010,
+        "y": 1660,
+        "wires": [
+            [
+                "db816606ee3cd33e"
+            ],
+            [
+                "45a51fcb05de908c"
+            ]
+        ]
+    },
+    {
+        "id": "9764a20ef08807c0",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGB8Custom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1720,
+        "wires": [
+            [
+                "4e585b6b80730d93"
+            ]
+        ]
+    },
+    {
+        "id": "db816606ee3cd33e",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "Custom Checker",
+        "property": "RGBMode",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "neq",
+                "v": "6",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "6",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 1210,
+        "y": 1620,
+        "wires": [
+            [
+                "8f0187fd5edd5021"
+            ],
+            [
+                "1a4e25492bbe197e"
+            ]
+        ]
+    },
+    {
+        "id": "1a4e25492bbe197e",
+        "type": "change",
+        "z": "86455c015ae650a0",
+        "name": "Color Picker",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "RGBCustom",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1410,
+        "y": 1640,
+        "wires": [
+            [
+                "4e585b6b80730d93"
+            ]
+        ]
+    },
+    {
+        "id": "92f3f086de758087",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "a607c65d5057eb92",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RGB Box 1 Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "center",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "3",
+        "buttonWidth": "3",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "0",
+        "backgroundColor": "#ffffff",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 170,
+        "y": 2300,
+        "wires": [
+            [
+                "a8f8a3ac9c98a563"
+            ]
+        ]
+    },
+    {
+        "id": "313b59d7ea871a78",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB 1 Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "82afc0ace5fe2a89",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 2800,
+        "wires": [
+            [
+                "a88d350b4b3217be"
+            ]
+        ]
+    },
+    {
+        "id": "b582cb47c339ac34",
+        "type": "ui_dropdown",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "label": "RGB 2 Mode",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "82afc0ace5fe2a89",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Fire",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Grass",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "Ocean",
+                "value": "3",
+                "type": "str"
+            },
+            {
+                "label": "Rainbow",
+                "value": "4",
+                "type": "str"
+            },
+            {
+                "label": "Christmas",
+                "value": "5",
+                "type": "str"
+            },
+            {
+                "label": "Custom Color",
+                "value": "6",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "topic",
+        "topicType": "msg",
+        "className": "",
+        "x": 190,
+        "y": 2860,
+        "wires": [
+            [
+                "b51585e8b67bd1a7"
+            ]
+        ]
+    },
+    {
+        "id": "c5032d54b13305df",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "a607c65d5057eb92",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RGB Box 2 Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "flex-start",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "3",
+        "buttonWidth": "3",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "0",
+        "backgroundColor": "#ff5555",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 170,
+        "y": 2360,
+        "wires": [
+            [
+                "ed1b516852b69427"
+            ]
+        ]
+    },
+    {
+        "id": "d92ef50edcb4fc9e",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "a607c65d5057eb92",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RGB Box 3 Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "flex-start",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "3",
+        "buttonWidth": "3",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "0",
+        "backgroundColor": "#ffffff",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 170,
+        "y": 2420,
+        "wires": [
+            [
+                "abc16861ee76f69c"
+            ]
+        ]
+    },
+    {
+        "id": "a7c4154b8618de94",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "a607c65d5057eb92",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RGB Box 4 Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "flex-start",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "3",
+        "buttonWidth": "3",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "00",
+        "backgroundColor": "#ffffff",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 170,
+        "y": 2480,
+        "wires": [
+            [
+                "063189ccfd5182a5"
+            ]
+        ]
+    },
+    {
+        "id": "65c40f8a9695d203",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "a607c65d5057eb92",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RGB Box 5 Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "flex-start",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "3",
+        "buttonWidth": "3",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "0",
+        "backgroundColor": "#ffffff",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 170,
+        "y": 2540,
+        "wires": [
+            [
+                "aa370b587d51ec31"
+            ]
+        ]
+    },
+    {
+        "id": "072afdb0c8723b96",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "a607c65d5057eb92",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RGB Box 6 Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "flex-start",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "3",
+        "buttonWidth": "3",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "0",
+        "backgroundColor": "#ffffff",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 170,
+        "y": 2600,
+        "wires": [
+            [
+                "1d5e1a430d43b874"
+            ]
+        ]
+    },
+    {
+        "id": "490398cc43eccdc4",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "a607c65d5057eb92",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RGB Box 7 Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "flex-start",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "3",
+        "buttonWidth": "3",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "0",
+        "backgroundColor": "#ffffff",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 170,
+        "y": 2660,
+        "wires": [
+            [
+                "7059a60b43cc7195"
+            ]
+        ]
+    },
+    {
+        "id": "eba2c3d5eebc0894",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "a607c65d5057eb92",
+        "order": 8,
+        "width": 6,
+        "height": 1,
+        "name": "",
+        "label": "RGB Box 8 Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "flex-start",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "3",
+        "buttonWidth": "3",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "0",
+        "backgroundColor": "#ffffff",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 170,
+        "y": 2720,
+        "wires": [
+            [
+                "28afd9f36ba8f012"
+            ]
+        ]
+    },
+    {
+        "id": "a9b052f42cd6883d",
+        "type": "comment",
+        "z": "86455c015ae650a0",
+        "name": "Adv controls",
+        "info": "",
+        "x": 110,
+        "y": 1740,
+        "wires": []
+    },
+    {
+        "id": "2ce6895dbba7aab6",
+        "type": "comment",
+        "z": "86455c015ae650a0",
+        "name": "Logic to prioritize certain settings",
+        "info": "",
+        "x": 1150,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "b8613c1cbcb37418",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "d389bfcc78e39383"
+            ],
+            [
+                "d05e7a98443a9956"
+            ]
+        ]
+    },
+    {
+        "id": "d389bfcc78e39383",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d05e7a98443a9956",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "55c077c74be3eefb",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "fb5f4195d83fed09"
+            ],
+            [
+                "11c2757b4be61744"
+            ]
+        ]
+    },
+    {
+        "id": "fb5f4195d83fed09",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "11c2757b4be61744",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "29d1cba2e0dd3329",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 340,
+        "wires": [
+            [
+                "7d0b7ffd8e4cf6d3"
+            ],
+            [
+                "aa52add85760a80c"
+            ]
+        ]
+    },
+    {
+        "id": "7d0b7ffd8e4cf6d3",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "aa52add85760a80c",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "735d74664a4d0459",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 440,
+        "wires": [
+            [
+                "18e63d4f734084ea"
+            ],
+            [
+                "37ee097d7c181ca1"
+            ]
+        ]
+    },
+    {
+        "id": "18e63d4f734084ea",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "37ee097d7c181ca1",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "81445c42bb52febd",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 540,
+        "wires": [
+            [
+                "04a0738b0b06b5bd"
+            ],
+            [
+                "674e3f39a5721ae9"
+            ]
+        ]
+    },
+    {
+        "id": "04a0738b0b06b5bd",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 500,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "674e3f39a5721ae9",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 540,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cba9fdf9a0276754",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 640,
+        "wires": [
+            [
+                "6edfaf0908695735"
+            ],
+            [
+                "06a02446e1492998"
+            ]
+        ]
+    },
+    {
+        "id": "6edfaf0908695735",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "06a02446e1492998",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 640,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d5dccff31458da5",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 740,
+        "wires": [
+            [
+                "bd02c849a29f610b"
+            ],
+            [
+                "cab82f1a58c9d022"
+            ]
+        ]
+    },
+    {
+        "id": "bd02c849a29f610b",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 700,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "cab82f1a58c9d022",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 740,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bbdc57df37538297",
+        "type": "switch",
+        "z": "86455c015ae650a0",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 840,
+        "wires": [
+            [
+                "6c65abae5ad85eb5"
+            ],
+            [
+                "a3316184c5197f7e"
+            ]
+        ]
+    },
+    {
+        "id": "6c65abae5ad85eb5",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a3316184c5197f7e",
+        "type": "function",
+        "z": "86455c015ae650a0",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 840,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f6ac759c205d8380",
+        "type": "ui_iro-color-picker",
+        "z": "86455c015ae650a0",
+        "group": "6b0c5b7e55a41902",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "RGB Color",
+        "placement": "left",
+        "hAlign": "flex-start",
+        "vAlign": "center",
+        "stateField": "payload",
+        "enableField": "enable",
+        "layoutDirection": "vertical",
+        "widgetIndent": "4",
+        "buttonWidth": "4",
+        "pickerType": "popupCC",
+        "popupWidth": 0,
+        "popupHeight": 0,
+        "pickerSize": "100",
+        "backgroundDim": "0",
+        "backgroundColor": "#ffffff",
+        "backgroundVariable": true,
+        "components": [
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "hue"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "saturation"
+                },
+                "componentId": "slider"
+            },
+            {
+                "options": {
+                    "borderColor": "#000000",
+                    "borderWidth": 0,
+                    "sliderType": "value"
+                },
+                "componentId": "slider"
+            }
+        ],
+        "format": "hex",
+        "outFormat": "hsv",
+        "dynOutput": "input:end",
+        "outputConfirmed": false,
+        "outputLimit": "10",
+        "passthru": false,
+        "topic": "topic",
+        "topicType": "msg",
+        "iroColorValue": "#808080",
+        "x": 1290,
+        "y": 160,
+        "wires": [
+            [
+                "ba1b54cce75108ab"
+            ]
+        ]
     },
     {
         "id": "fd84d2574ba350d2",
@@ -2024,7 +6422,8 @@
         "y": 100,
         "wires": [
             [
-                "36f2364cd64c9584"
+                "36f2364cd64c9584",
+                "85a30d0b56f3d5c9"
             ]
         ]
     },
@@ -2042,10 +6441,11 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 160,
+        "y": 200,
         "wires": [
             [
-                "9b7691d6d048ef78"
+                "9b7691d6d048ef78",
+                "6a6f0676b17b641a"
             ]
         ]
     },
@@ -2063,7 +6463,7 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 220,
+        "y": 300,
         "wires": [
             [
                 "5575d0a5fc9f56e2"
@@ -2084,80 +6484,10 @@
         "rh": 0,
         "inputs": 0,
         "x": 150,
-        "y": 280,
+        "y": 400,
         "wires": [
             [
                 "b11135e420e9f5c9"
-            ]
-        ]
-    },
-    {
-        "id": "2ee013f934ababc9",
-        "type": "mqtt out",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "topic": "lights/AC/box1",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1340,
-        "y": 160,
-        "wires": []
-    },
-    {
-        "id": "093bc32b8e8b418e",
-        "type": "mqtt in",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "topic": "lights",
-        "qos": "0",
-        "datatype": "auto-detect",
-        "broker": "25629b3ce26ccf6a",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 590,
-        "y": 100,
-        "wires": [
-            [
-                "af2d5d71e184d838"
-            ]
-        ]
-    },
-    {
-        "id": "af2d5d71e184d838",
-        "type": "change",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "rules": [
-            {
-                "t": "set",
-                "p": "payload",
-                "pt": "msg",
-                "to": "ACMode",
-                "tot": "global"
-            }
-        ],
-        "action": "",
-        "property": "",
-        "from": "",
-        "to": "",
-        "reg": false,
-        "x": 760,
-        "y": 100,
-        "wires": [
-            [
-                "038be91bad9e8964",
-                "df04291e7467ba80",
-                "5d59147cbdd6e303",
-                "a709ee274dd74d72",
-                "6366f4f7db02c8fd"
             ]
         ]
     },
@@ -2206,7 +6536,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 400,
+        "y": 600,
         "wires": [
             []
         ]
@@ -2231,7 +6561,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 460,
+        "y": 660,
         "wires": [
             []
         ]
@@ -2256,7 +6586,7 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 520,
+        "y": 720,
         "wires": [
             []
         ]
@@ -2281,155 +6611,9 @@
         "to": "",
         "reg": false,
         "x": 350,
-        "y": 580,
+        "y": 780,
         "wires": [
             []
-        ]
-    },
-    {
-        "id": "038be91bad9e8964",
-        "type": "switch",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "property": "ACbox1Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1170,
-        "y": 160,
-        "wires": [
-            [
-                "2ee013f934ababc9"
-            ]
-        ]
-    },
-    {
-        "id": "70a0377f6f48ff2f",
-        "type": "mqtt out",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "topic": "lights/AC/box2",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1340,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "df04291e7467ba80",
-        "type": "switch",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "property": "ACbox2Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1170,
-        "y": 220,
-        "wires": [
-            [
-                "70a0377f6f48ff2f"
-            ]
-        ]
-    },
-    {
-        "id": "f32f9d75c16c7ed3",
-        "type": "mqtt out",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "topic": "lights/AC/box3",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1340,
-        "y": 280,
-        "wires": []
-    },
-    {
-        "id": "5d59147cbdd6e303",
-        "type": "switch",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "property": "ACbox3Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1170,
-        "y": 280,
-        "wires": [
-            [
-                "f32f9d75c16c7ed3"
-            ]
-        ]
-    },
-    {
-        "id": "f499b6b8af2aad26",
-        "type": "mqtt out",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "topic": "lights/AC/box4",
-        "qos": "0",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1340,
-        "y": 340,
-        "wires": []
-    },
-    {
-        "id": "a709ee274dd74d72",
-        "type": "switch",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "property": "ACbox4Toggle",
-        "propertyType": "global",
-        "rules": [
-            {
-                "t": "true"
-            }
-        ],
-        "checkall": "true",
-        "repair": false,
-        "outputs": 1,
-        "x": 1170,
-        "y": 340,
-        "wires": [
-            [
-                "f499b6b8af2aad26"
-            ]
         ]
     },
     {
@@ -2449,7 +6633,7 @@
         "name": "Switches",
         "info": "If the switch is on the respective variable is set to true",
         "x": 100,
-        "y": 340,
+        "y": 540,
         "wires": []
     },
     {
@@ -2463,44 +6647,6 @@
         "wires": []
     },
     {
-        "id": "99284b56a0df66cb",
-        "type": "mqtt out",
-        "z": "3b848663afbdce68",
-        "name": "",
-        "topic": "lights/AC/box1",
-        "qos": "",
-        "retain": "",
-        "respTopic": "",
-        "contentType": "",
-        "userProps": "",
-        "correl": "",
-        "expiry": "",
-        "broker": "25629b3ce26ccf6a",
-        "x": 1340,
-        "y": 100,
-        "wires": []
-    },
-    {
-        "id": "6366f4f7db02c8fd",
-        "type": "function",
-        "z": "3b848663afbdce68",
-        "name": "function 1",
-        "func": "while (msg.payload == 0){\n    setTimeout(function() {\n        return msg;\n    }, 7000);\n    \n}\n",
-        "outputs": 1,
-        "timeout": 0,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 1160,
-        "y": 100,
-        "wires": [
-            [
-                "99284b56a0df66cb"
-            ]
-        ]
-    },
-    {
         "id": "07d6dd0e4ebb2ecc",
         "type": "ui_dropdown",
         "z": "3b848663afbdce68",
@@ -2509,7 +6655,7 @@
         "tooltip": "",
         "place": "Select option",
         "group": "6b0c5b7e55a41902",
-        "order": 2,
+        "order": 5,
         "width": 0,
         "height": 0,
         "passthru": false,
@@ -2570,7 +6716,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 400,
+        "y": 600,
         "wires": [
             [
                 "41323c831b1407c6"
@@ -2604,7 +6750,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 460,
+        "y": 660,
         "wires": [
             [
                 "b63e7091887d588d"
@@ -2638,7 +6784,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 520,
+        "y": 720,
         "wires": [
             [
                 "e11d4dda5009de7f"
@@ -2672,7 +6818,7 @@
         "animate": false,
         "className": "",
         "x": 110,
-        "y": 580,
+        "y": 780,
         "wires": [
             [
                 "302761d3389ff484"
@@ -2718,7 +6864,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 410,
-        "y": 160,
+        "y": 200,
         "wires": []
     },
     {
@@ -2739,7 +6885,7 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 410,
-        "y": 220,
+        "y": 300,
         "wires": []
     },
     {
@@ -2760,15 +6906,1202 @@
         "fontSize": 16,
         "color": "#000000",
         "x": 410,
-        "y": 280,
+        "y": 400,
         "wires": []
     },
     {
-        "id": "7a7cf872014a931a",
+        "id": "af7ba51203f37bd0",
+        "type": "ui_switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "label": "A/C 1 Advanced Controls",
+        "tooltip": "",
+        "group": "b41990b70711093a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 900,
+        "wires": [
+            [
+                "c48db5857293bd09"
+            ]
+        ]
+    },
+    {
+        "id": "1d522350ee2a543e",
+        "type": "ui_switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "label": "A/C 2 Advanced Controls",
+        "tooltip": "",
+        "group": "b41990b70711093a",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 960,
+        "wires": [
+            [
+                "c494bf09c9178c96"
+            ]
+        ]
+    },
+    {
+        "id": "883f071b7af2dfa5",
+        "type": "ui_switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "label": "A/C 3 Advanced Controls",
+        "tooltip": "",
+        "group": "b41990b70711093a",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 1020,
+        "wires": [
+            [
+                "f8997fc23196a6ec"
+            ]
+        ]
+    },
+    {
+        "id": "dd7950ffb4fb44ec",
+        "type": "ui_switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "label": "A/C 4 Advanced Controls",
+        "tooltip": "",
+        "group": "b41990b70711093a",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 150,
+        "y": 1080,
+        "wires": [
+            [
+                "5047f63387a7b28c"
+            ]
+        ]
+    },
+    {
+        "id": "c48db5857293bd09",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "AC1AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 900,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c494bf09c9178c96",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "AC2AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 960,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f8997fc23196a6ec",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "AC3AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 1020,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5047f63387a7b28c",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "AC4AdvToggle",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 1080,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1ac3a4262420116a",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "AC1Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "61ee0e26c0bb5f59",
+        "type": "ui_dropdown",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "label": "A/C Mode 1",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "94bc18b6bd7cfe86",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Twinkle",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Flash",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "AI",
+                "value": "3",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "ACMode",
+        "topicType": "global",
+        "className": "",
+        "x": 110,
+        "y": 1160,
+        "wires": [
+            [
+                "1ac3a4262420116a"
+            ]
+        ]
+    },
+    {
+        "id": "16983a3ac4efe43a",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "AC2Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b2add2d6e6c6b1f7",
+        "type": "ui_dropdown",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "label": "A/C Mode 2",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "94bc18b6bd7cfe86",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Twinkle",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Flash",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "AI",
+                "value": "3",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "ACMode",
+        "topicType": "global",
+        "className": "",
+        "x": 110,
+        "y": 1220,
+        "wires": [
+            [
+                "16983a3ac4efe43a"
+            ]
+        ]
+    },
+    {
+        "id": "c094037f076dfacb",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "AC3Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "b4a6fd569128cd19",
+        "type": "ui_dropdown",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "label": "A/C Mode 3",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "94bc18b6bd7cfe86",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Twinkle",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Flash",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "AI",
+                "value": "3",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "ACMode",
+        "topicType": "global",
+        "className": "",
+        "x": 110,
+        "y": 1280,
+        "wires": [
+            [
+                "c094037f076dfacb"
+            ]
+        ]
+    },
+    {
+        "id": "0ff6d8efa2c158df",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "AC4Mode",
+                "pt": "global",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 320,
+        "y": 1340,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7a1061908ddb181a",
+        "type": "ui_dropdown",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "label": "A/C Mode 4",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "94bc18b6bd7cfe86",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Twinkle",
+                "value": "1",
+                "type": "str"
+            },
+            {
+                "label": "Flash",
+                "value": "2",
+                "type": "str"
+            },
+            {
+                "label": "AI",
+                "value": "3",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "ACMode",
+        "topicType": "global",
+        "className": "",
+        "x": 110,
+        "y": 1340,
+        "wires": [
+            [
+                "0ff6d8efa2c158df"
+            ]
+        ]
+    },
+    {
+        "id": "3506c5033088f232",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "On/Off Checker",
+        "property": "RGBbox1Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 600,
+        "wires": [
+            [
+                "fcef634b03913a93"
+            ]
+        ]
+    },
+    {
+        "id": "aea027ff4f3b9b7e",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ACMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 580,
+        "wires": [
+            [
+                "3506c5033088f232"
+            ]
+        ]
+    },
+    {
+        "id": "2be71ad7108fab0d",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "AC1Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 620,
+        "wires": [
+            [
+                "3506c5033088f232"
+            ]
+        ]
+    },
+    {
+        "id": "0d0f1ded21bc2e9f",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "Adv Checker ",
+        "property": "AC1AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 600,
+        "wires": [
+            [
+                "aea027ff4f3b9b7e"
+            ],
+            [
+                "2be71ad7108fab0d"
+            ]
+        ]
+    },
+    {
+        "id": "12c1c01a7b4a84ec",
+        "type": "mqtt in",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "25629b3ce26ccf6a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 630,
+        "y": 760,
+        "wires": [
+            [
+                "0d0f1ded21bc2e9f",
+                "279b26f5552f13d2",
+                "0b3178bc96099a09",
+                "d3317ef34ed794c1"
+            ]
+        ]
+    },
+    {
+        "id": "fcef634b03913a93",
+        "type": "mqtt out",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights/AC/box1",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1440,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "d4a6ed99ccea8f7d",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "On/Off Checker",
+        "property": "AC2Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 700,
+        "wires": [
+            [
+                "c682fce51b1b10dc"
+            ]
+        ]
+    },
+    {
+        "id": "53e2715f4750ed98",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ACMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 680,
+        "wires": [
+            [
+                "d4a6ed99ccea8f7d"
+            ]
+        ]
+    },
+    {
+        "id": "ceb73dbeb74a0aec",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "AC2Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 720,
+        "wires": [
+            [
+                "d4a6ed99ccea8f7d"
+            ]
+        ]
+    },
+    {
+        "id": "279b26f5552f13d2",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "Adv Checker ",
+        "property": "AC2AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 700,
+        "wires": [
+            [
+                "53e2715f4750ed98"
+            ],
+            [
+                "ceb73dbeb74a0aec"
+            ]
+        ]
+    },
+    {
+        "id": "c682fce51b1b10dc",
+        "type": "mqtt out",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights/AC/box2",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1440,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "8246c5b38f6799a8",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "On/Off Checker",
+        "property": "AC3oggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 800,
+        "wires": [
+            [
+                "a36139efa7de8c92"
+            ]
+        ]
+    },
+    {
+        "id": "2a84efc474eabc6a",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ACMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 780,
+        "wires": [
+            [
+                "8246c5b38f6799a8"
+            ]
+        ]
+    },
+    {
+        "id": "5dd003126715445d",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "AC3Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 820,
+        "wires": [
+            [
+                "8246c5b38f6799a8"
+            ]
+        ]
+    },
+    {
+        "id": "0b3178bc96099a09",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "Adv Checker ",
+        "property": "AC3AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 800,
+        "wires": [
+            [
+                "2a84efc474eabc6a"
+            ],
+            [
+                "5dd003126715445d"
+            ]
+        ]
+    },
+    {
+        "id": "a36139efa7de8c92",
+        "type": "mqtt out",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights/AC/box2",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1440,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "3412785b2a077923",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "On/Off Checker",
+        "property": "AC4Toggle",
+        "propertyType": "global",
+        "rules": [
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 1220,
+        "y": 900,
+        "wires": [
+            [
+                "7f92e8f3b4ad549e"
+            ]
+        ]
+    },
+    {
+        "id": "819739f7d2c346d5",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "General Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "ACMode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 880,
+        "wires": [
+            [
+                "3412785b2a077923"
+            ]
+        ]
+    },
+    {
+        "id": "02525a0a4a310265",
+        "type": "change",
+        "z": "3b848663afbdce68",
+        "name": "Advanced Mode",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "AC4Mode",
+                "tot": "global"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1020,
+        "y": 920,
+        "wires": [
+            [
+                "3412785b2a077923"
+            ]
+        ]
+    },
+    {
+        "id": "d3317ef34ed794c1",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "Adv Checker ",
+        "property": "AC4AdvToggle",
+        "propertyType": "flow",
+        "rules": [
+            {
+                "t": "false"
+            },
+            {
+                "t": "true"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 830,
+        "y": 900,
+        "wires": [
+            [
+                "819739f7d2c346d5"
+            ],
+            [
+                "02525a0a4a310265"
+            ]
+        ]
+    },
+    {
+        "id": "7f92e8f3b4ad549e",
+        "type": "mqtt out",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "topic": "lights/AC/box4",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "25629b3ce26ccf6a",
+        "x": 1440,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "85a30d0b56f3d5c9",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 140,
+        "wires": [
+            [
+                "d6bb56856ff91bd9"
+            ],
+            [
+                "6d56de6ec5065f3c"
+            ]
+        ]
+    },
+    {
+        "id": "d6bb56856ff91bd9",
+        "type": "function",
+        "z": "3b848663afbdce68",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6d56de6ec5065f3c",
+        "type": "function",
+        "z": "3b848663afbdce68",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "6a6f0676b17b641a",
+        "type": "switch",
+        "z": "3b848663afbdce68",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "Connected",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "Disconnected",
+                "vt": "str"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 450,
+        "y": 240,
+        "wires": [
+            [
+                "7e0640768c1b756e"
+            ],
+            [
+                "792f2bbb0d708a3c"
+            ]
+        ]
+    },
+    {
+        "id": "7e0640768c1b756e",
+        "type": "function",
+        "z": "3b848663afbdce68",
+        "name": "Online",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline ++);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 200,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "792f2bbb0d708a3c",
+        "type": "function",
+        "z": "3b848663afbdce68",
+        "name": "Offline",
+        "func": "let numBoxesOnline = global.get(\"numBoxesOnline\");\nglobal.set(\"numBoxesOnline\", numBoxesOnline --);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 590,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a034647137d0aae8",
+        "type": "comment",
+        "z": "3b848663afbdce68",
+        "name": "Adv controls",
+        "info": "",
+        "x": 110,
+        "y": 840,
+        "wires": []
+    },
+    {
+        "id": "0ce8f9aec1c714f0",
+        "type": "comment",
+        "z": "3b848663afbdce68",
+        "name": "logic for adv controls",
+        "info": "",
+        "x": 690,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "f7e2b4038efa5d38",
         "type": "global-config",
         "env": [],
         "modules": {
-            "node-red-dashboard": "3.6.6"
+            "node-red-dashboard": "3.6.6",
+            "node-red-contrib-ui-iro-color-picker": "0.1.6"
         }
     }
 ]
