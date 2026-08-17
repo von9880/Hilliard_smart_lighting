@@ -1,3 +1,6 @@
+# pip install paho-mqtt numpy soundcard
+
+
 import time
 import paho.mqtt.client as mqtt
 import tkinter as tk
@@ -52,7 +55,7 @@ class AudioMqttApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Music Processing")
-        self.root.geometry("400x275")
+        self.root.geometry("400x200")
 
         self.root.configure(bg="#cfe5f4")
         self.root.configure(background="#cfe5f4")
@@ -108,21 +111,6 @@ class AudioMqttApp:
         self.stop_btn.pack(side="right", padx=10)
 
 
-        self.current_val_label = tk.Label(root, text="speaker delay",  font=("Arial", 14), fg="#1098d7", bg= "#cfe5f4")
-        self.current_val_label.pack(pady=10)
-
-        self.slider = tk.Scale(
-            root,
-            from_=0,        
-            to=100,        
-            orient='horizontal', 
-            command= lambda _: getSilderVal()
-        )
-        self.slider.pack(fill='x', padx=20, pady=10)
-
-
-        def getSilderVal():
-            return self.slider.get()
 
         # Handle window exit securely
         self.root.protocol("WM_DELETE_WINDOW", self.on_closing)
