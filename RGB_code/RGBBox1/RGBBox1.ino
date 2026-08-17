@@ -9,9 +9,9 @@
 // ==========================================
 // 1. SYSTEM CONFIGURATION & HARDWARE SETTINGS
 // ==========================================
-#define NUM_LEDS 100           // Total physical LED count
-#define LEDS_PER_SEGMENT 10      // Desired number of LEDs per segment
-#define DATA_PIN 4                // Pin output to LED strip data line
+#define NUM_LEDS 200         // Total LED count
+#define LEDS_PER_SEGMENT 25      // Number of LEDs per segment
+#define DATA_PIN 4                // Output  to LED strip data line
 
 // Non-blocking Animation Limits
 #define MAX_PULSES 15            // Maximum simultaneous tracked active pulses
@@ -23,21 +23,22 @@ const char* password = "Interns123!";
 // MQTT Broker Settings
 const char *mqtt_broker   = "192.168.60.6"; 
 const int   mqtt_port     = 1883;           
-const char *mqtt_username = "RGB1"; //Change with box #        
-const char *mqtt_password = "HilliardRGB#1"; //Change with box #   
+const char *mqtt_username = "RGB6"; //Change with box #        
+const char *mqtt_password = "HilliardRGB#6"; //Change with box #   
 
 // Topic Subscriptions
-const char *mqtt_topic        = "lights/RGB/box1"; //Change with box #   
+const char *mqtt_topic        = "lights/RGB/box6"; //Change with box #   
 const char *speed_topic       = "lights/RGB/speed";
 const char *brightness_topic  = "lights/RGB/brightness";
-const char *will_topic        = "lights/RGB/box1/connection"; //Change with box #   
+const char *will_topic        = "lights/RGB/box6/connection"; //Change with box #   
 
-// Time Stuffs
+// TTime syncing
 ESP32Time rtc(0);
 const char* ntpServer = "pool.ntp.org";
 unsigned long Epoch_Time; 
 unsigned long New_Epoch_Time;
 
+// Delay backolog
 String delayBacklog[] = {"-1", "-1", "-1", "-1", "-1"};
 String triggerBacklog[] = {"-1", "-1", "-1", "-1", "-1"};
 int backlogCount = 0;
@@ -46,7 +47,7 @@ int executeCount = 0;
 bool invertRedGreen = true; //switch red and green (seed lights)
 //bool invertRedGreen = false; //(LED strip lights)
 
-int customColor[3];
+int customColor[3]; //array to store HSV codes for custom colors
 
 // ==========================================
 // 2. COMPILE-TIME AUTOMATIC SAFETY MATH
@@ -122,7 +123,7 @@ void setup() {
   // Initialize all tracking animation slots to inactive
   for (int i = 0; i < MAX_PULSES; i++) {
     pulsePositions[i] = -1;
-    pulseColors[i] = CRGB::Black;
+    pulseColors[i] = CRGB::Black; 
   }
 
   // Network Provisioning
@@ -190,12 +191,12 @@ void updateAnimations() {
   FastLED.show();
 }
 
-void drawPatterns(int pulseIndex, int distance) {
+void drawPatterns(int pulseIndex, int distance) { //defines each color mode
   CRGB drawColor = pulseColors[pulseIndex];
 
   for (int c = 0; c < NUM_CENTERS; c++) {
     int centerPos = centers[c];
-    /*New Color Template (also update handleModeMessage and node-RED)
+    /*New Color Template (also update processDelay() and Node-RED to match)
     else if (drawColor == CRGB::[color]) {
       CRGB [color]Color = CHSV(hue, saturation , random8(200, 255));
       setLedSafe(centerPos + distance, [color]Color);
@@ -229,17 +230,6 @@ void drawPatterns(int pulseIndex, int distance) {
       setLedSafe(centerPos + distance, grassColor);
       setLedSafe(centerPos - distance, grassColor);
     } 
-    else if (drawColor == CRGB::HotPink) {
-      CRGB pinkColor = CHSV(230, 255 , random8(200, 255));
-      setLedSafe(centerPos + distance, pinkColor);
-      setLedSafe(centerPos - distance, pinkColor);
-    } 
-    else if (drawColor == CRGB::LightBlue) {
-      CRGB lBlueColor = CHSV(127, 255 , random8(200, 255));
-      setLedSafe(centerPos + distance, lBlueColor);
-      setLedSafe(centerPos - distance, lBlueColor);
-    } 
-    
     else if (drawColor == CRGB::Brown) { //custom color (brown is placeholder)
       CRGB customColorRGB = CHSV(customColor[0], customColor[1], customColor[2]);
       setLedSafe(centerPos + distance, customColorRGB);
@@ -277,7 +267,7 @@ void setLedSafe(int index, CRGB color) {
 // 7. NETWORK & COMMUNICATIONS PROTOCOLS
 // ==========================================
 
-unsigned long Get_Epoch_Time() {
+unsigned long Get_Epoch_Time() { //gets the time (to the second) over WIFI
   time_t now;
   struct tm timeinfo;
   if (!getLocalTime(&timeinfo)) {
@@ -288,8 +278,8 @@ unsigned long Get_Epoch_Time() {
 }
 
 
-// UNIFIED HANDLER: Receives ALL topic payloads and filters them by string matching
-void mqttCallback(char *topic, byte *payload, unsigned int length) {
+
+void mqttCallback(char *topic, byte *payload, unsigned int length) { //recives MQTT messages and directs them to specific functions based on their topic
   String message;
   for (unsigned int i = 0; i < length; i++) {
     message += (char) payload[i]; 
@@ -309,7 +299,7 @@ void mqttCallback(char *topic, byte *payload, unsigned int length) {
 }
 
 
-void handleModeMessage(String message) {
+void handleModeMessage(String message) { // adds triggers and delays to backlog
   int delayMs = message.substring(message.length() - 5).toInt();  
   delayBacklog[backlogCount] = delayMs;
   triggerBacklog[backlogCount] = message;
@@ -319,19 +309,19 @@ void handleModeMessage(String message) {
   }
 }
 
-void processDelays(){
+void processDelays(){ //excecutes trigger if within x ms of timestamp
   for (int i = 0; i < 5; i ++){
     if (triggerBacklog[i].equals("-1")){
       continue;
     }
     unsigned long currentMillis = rtc.getMillis();
-    if (abs(delayBacklog[i].toInt() - currentMillis) % 1000 < 50){
+    if (abs(delayBacklog[i].toInt() - currentMillis) % 1000 < 100){ //if the time is within x Ms of the timestamp
       if (triggerBacklog[i].substring(0, 1) == "1")       spawnPulse(CRGB::DarkOrange);
       else if (triggerBacklog[i].substring(0, 1) == "2")  spawnPulse(CRGB::DarkGreen);
       else if (triggerBacklog[i].substring(0, 1) == "3")  spawnPulse(CRGB::BlueViolet);
       else if (triggerBacklog[i].substring(0, 1) == "4")  spawnPulse(CRGB::Black); 
       else if (triggerBacklog[i].substring(0, 1) == "5")  spawnPulse(CRGB::White);
-      else if (triggerBacklog[i].substring(0, 3) = "{\"h"){ //inputting custom colors from node-RED in this format: {"h":205.20000000000002,"s":49,"v":100}
+      else if (triggerBacklog[i].substring(0, 3) = "{\"h"){ //inputting custom colors from node-RED in this format: "{"h":205.20000000000002,"s":49,"v":100}"
         String shortenedMessage = triggerBacklog[i].substring(5);
         int firstCommaIndex = shortenedMessage.indexOf(",");
         customColor[0] = shortenedMessage.substring(0, firstCommaIndex).toInt() * 255 / 360;
@@ -339,27 +329,27 @@ void processDelays(){
         int secondCommaIndex = shortenedMessage.indexOf(",");
         customColor[1] = shortenedMessage.substring(0, secondCommaIndex).toInt() * 255 / 100;
         customColor[2] = shortenedMessage.substring(secondCommaIndex + 5, shortenedMessage.length() - 1).toInt() * 255 / 100;
-        spawnPulse(CRGB::Brown); //temporary color that we WILL NOT USE for anything else (it crashes the ESP if we dont do this)
+        spawnPulse(CRGB::Brown); //spawnPulse requires an argument
       }
-      triggerBacklog[i] = "-1";
+      triggerBacklog[i] = "-1"; //Removes trigger from backlogs
       delayBacklog[i] = "-1";
     }
     delay(1);
   }
 }
 
-void handleSpeedMessage(String message) {
-  int parsedSpeed = message.toInt(); // Fixed: safely parses numeric text value strings
-  parsedSpeed = 50 - parsedSpeed / 2;
+void handleSpeedMessage(String message) { // updates speed 
+  int parsedSpeed = message.toInt(); 
+  parsedSpeed = 50 - parsedSpeed / 2; // maps the Node-RED message to a usable range of speeds
   ledSpeed = parsedSpeed;
 }
 
 
-void handleBrightnessMessage(String message) {
+void handleBrightnessMessage(String message) { // updates brightness
   int parsedBrightness = message.toInt();
   if (parsedBrightness >= 0 && parsedBrightness <= 100) {
     currentBrightness = parsedBrightness;
-    FastLED.setBrightness(currentBrightness); // Refreshes global hardware matrix registers
+    FastLED.setBrightness(currentBrightness); 
   }
 }
 
