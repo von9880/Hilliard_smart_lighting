@@ -10,7 +10,7 @@
 // 1. SYSTEM CONFIGURATION & HARDWARE SETTINGS
 // ==========================================
 #define NUM_LEDS 200         // Total LED count
-#define LEDS_PER_SEGMENT 25      // Number of LEDs per segment
+#define LEDS_PER_SEGMENT 50      // Number of LEDs per segment
 #define DATA_PIN 4                // Output  to LED strip data line
 
 // Non-blocking Animation Limits
@@ -23,14 +23,14 @@ const char* password = "Interns123!";
 // MQTT Broker Settings
 const char *mqtt_broker   = "192.168.60.6"; 
 const int   mqtt_port     = 1883;           
-const char *mqtt_username = "RGB6"; //Change with box #        
-const char *mqtt_password = "HilliardRGB#6"; //Change with box #   
+const char *mqtt_username = "RGB7"; //Change with box #        
+const char *mqtt_password = "HilliardRGB#7"; //Change with box #   
 
 // Topic Subscriptions
-const char *mqtt_topic        = "lights/RGB/box6"; //Change with box #   
+const char *mqtt_topic        = "lights/RGB/box7"; //Change with box #   
 const char *speed_topic       = "lights/RGB/speed";
 const char *brightness_topic  = "lights/RGB/brightness";
-const char *will_topic        = "lights/RGB/box6/connection"; //Change with box #   
+const char *will_topic        = "lights/RGB/box7/connection"; //Change with box #   
 
 // TTime syncing
 ESP32Time rtc(0);
